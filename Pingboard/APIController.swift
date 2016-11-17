@@ -24,33 +24,64 @@ class APIController
         var request = URLRequest(url: url!)
         request.addValue("hGsZ9J4kvxbBNRqGSEM7JtfDlSU/qh8Z", forHTTPHeaderField: "x-authorization-key")
         //request.httpMethod = "GET"
-        let task = URLSession.shared.dataTask(with: request as URLRequest) {
+        let task = URLSession.shared.dataTask(with: request as URLRequest)
+        {
             data, response, error in
             if error != nil
             {
                 print("error=\(error)")
                 return
             }
-            do {
+            do
+            {
                 let myJSON =  try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [String: AnyObject]
                 
-                if let myJSON = myJSON {
+                if let myJSON = myJSON
+                {
                     playersResult = myJSON
                     self.delegate.getThePlayers(thePlayersArray: playersResult)
-                    //print(playersResult)
-//                    for i in 0..<parseJSON.count
-//                    {
-//                        //let capabilitiesDict = parseJSON[i]
-//                        capabilities.append(parseJSON)
-//                    }
                 }
-            } catch {
+            }
+            catch
+            {
                 print(error)
             }
             
         }
         task.resume()
-        //print(playersResult)
-        //return playersResult
     }
+    
+    func getPingMatchesAPI()
+    {
+        var matchesResult = [String: AnyObject]()
+        let url = URL(string:"https://tiy-pingpong-api.herokuapp.com/rest/match/list")
+        var request = URLRequest(url: url!)
+        request.addValue("hGsZ9J4kvxbBNRqGSEM7JtfDlSU/qh8Z", forHTTPHeaderField: "x-authorization-key")
+        let task = URLSession.shared.dataTask(with: request as URLRequest)
+        {
+            data, response, error in
+            if error != nil
+            {
+                print("error=\(error)")
+                return
+            }
+            do
+            {
+                let myJSON =  try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [String: AnyObject]
+                
+                if let myJSON = myJSON
+                {
+                    matchesResult = myJSON
+                    self.delegate.getTheMatches(theMatchesArray: matchesResult)
+                }
+            }
+            catch
+            {
+                print(error)
+            }
+        }
+        task.resume()
+    }
+    
+    
 }

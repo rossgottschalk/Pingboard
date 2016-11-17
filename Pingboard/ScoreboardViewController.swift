@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  ScoreboardViewController.swift
 //  Pingboard
 //
 //  Created by Ross Gottschalk on 11/11/16.
@@ -8,7 +8,8 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+
+class ScoreboardViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -10,12 +10,11 @@ import UIKit
 
 class PlayerDetailViewController: UIViewController
 {
+    var player: PlayerBuilder?
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning()

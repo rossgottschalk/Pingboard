@@ -11,13 +11,15 @@
 		5B79ED411DD62B03000F0C26 /* PlayerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B79ED401DD62B03000F0C26 /* PlayerBuilder.swift */; };
 		5BC38F691DD6230000FB93AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC38F681DD6230000FB93AF /* AppDelegate.swift */; };
 		5BC38F6B1DD6230000FB93AF /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC38F6A1DD6230000FB93AF /* FirstViewController.swift */; };
-		5BC38F6D1DD6230000FB93AF /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC38F6C1DD6230000FB93AF /* SecondViewController.swift */; };
+		5BC38F6D1DD6230000FB93AF /* ScoreboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC38F6C1DD6230000FB93AF /* ScoreboardViewController.swift */; };
 		5BC38F701DD6230000FB93AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BC38F6E1DD6230000FB93AF /* Main.storyboard */; };
 		5BC38F721DD6230000FB93AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BC38F711DD6230000FB93AF /* Assets.xcassets */; };
 		5BC38F751DD6230000FB93AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BC38F731DD6230000FB93AF /* LaunchScreen.storyboard */; };
 		5BC38F7D1DD6261400FB93AF /* StandingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC38F7C1DD6261400FB93AF /* StandingsTableViewController.swift */; };
 		5BD3D94D1DDE29D4007322B1 /* PlayerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD3D94C1DDE29D4007322B1 /* PlayerDetailViewController.swift */; };
-		5BE1D68E1DDBB61700695166 /* APIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1D68D1DDBB61700695166 /* APIResult.swift */; };
+		5BD3D94F1DDE39CD007322B1 /* MatchBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD3D94E1DDE39CD007322B1 /* MatchBuilder.swift */; };
+		5BD3D9511DDE3A92007322B1 /* MatchesAPIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD3D9501DDE3A92007322B1 /* MatchesAPIResult.swift */; };
+		5BE1D68E1DDBB61700695166 /* PlayersAPIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BE1D68D1DDBB61700695166 /* PlayersAPIResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,14 +28,16 @@
 		5BC38F651DD6230000FB93AF /* Pingboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pingboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BC38F681DD6230000FB93AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BC38F6A1DD6230000FB93AF /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		5BC38F6C1DD6230000FB93AF /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		5BC38F6C1DD6230000FB93AF /* ScoreboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreboardViewController.swift; sourceTree = "<group>"; };
 		5BC38F6F1DD6230000FB93AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5BC38F711DD6230000FB93AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5BC38F741DD6230000FB93AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5BC38F761DD6230000FB93AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5BC38F7C1DD6261400FB93AF /* StandingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandingsTableViewController.swift; sourceTree = "<group>"; };
 		5BD3D94C1DDE29D4007322B1 /* PlayerDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerDetailViewController.swift; sourceTree = "<group>"; };
-		5BE1D68D1DDBB61700695166 /* APIResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResult.swift; sourceTree = "<group>"; };
+		5BD3D94E1DDE39CD007322B1 /* MatchBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchBuilder.swift; sourceTree = "<group>"; };
+		5BD3D9501DDE3A92007322B1 /* MatchesAPIResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesAPIResult.swift; sourceTree = "<group>"; };
+		5BE1D68D1DDBB61700695166 /* PlayersAPIResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayersAPIResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,10 +73,12 @@
 				5BC38F681DD6230000FB93AF /* AppDelegate.swift */,
 				5B79ED3E1DD6288D000F0C26 /* APIController.swift */,
 				5BC38F6A1DD6230000FB93AF /* FirstViewController.swift */,
-				5BC38F6C1DD6230000FB93AF /* SecondViewController.swift */,
+				5BC38F6C1DD6230000FB93AF /* ScoreboardViewController.swift */,
 				5BC38F7C1DD6261400FB93AF /* StandingsTableViewController.swift */,
 				5BD3D94C1DDE29D4007322B1 /* PlayerDetailViewController.swift */,
-				5BE1D68D1DDBB61700695166 /* APIResult.swift */,
+				5BE1D68D1DDBB61700695166 /* PlayersAPIResult.swift */,
+				5BD3D9501DDE3A92007322B1 /* MatchesAPIResult.swift */,
+				5BD3D94E1DDE39CD007322B1 /* MatchBuilder.swift */,
 				5B79ED401DD62B03000F0C26 /* PlayerBuilder.swift */,
 				5BC38F6E1DD6230000FB93AF /* Main.storyboard */,
 				5BC38F711DD6230000FB93AF /* Assets.xcassets */,
@@ -155,13 +161,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BC38F6D1DD6230000FB93AF /* SecondViewController.swift in Sources */,
+				5BC38F6D1DD6230000FB93AF /* ScoreboardViewController.swift in Sources */,
+				5BD3D9511DDE3A92007322B1 /* MatchesAPIResult.swift in Sources */,
 				5BC38F691DD6230000FB93AF /* AppDelegate.swift in Sources */,
+				5BD3D94F1DDE39CD007322B1 /* MatchBuilder.swift in Sources */,
 				5BC38F6B1DD6230000FB93AF /* FirstViewController.swift in Sources */,
 				5BC38F7D1DD6261400FB93AF /* StandingsTableViewController.swift in Sources */,
 				5BD3D94D1DDE29D4007322B1 /* PlayerDetailViewController.swift in Sources */,
 				5B79ED411DD62B03000F0C26 /* PlayerBuilder.swift in Sources */,
-				5BE1D68E1DDBB61700695166 /* APIResult.swift in Sources */,
+				5BE1D68E1DDBB61700695166 /* PlayersAPIResult.swift in Sources */,
 				5B79ED3F1DD6288D000F0C26 /* APIController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

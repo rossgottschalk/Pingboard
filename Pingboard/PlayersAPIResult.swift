@@ -1,5 +1,5 @@
 //
-//  APIResult.swift
+//  PlayersAPIResult.swift
 //  Pingboard
 //
 //  Created by Ross Gottschalk on 11/15/16.
@@ -7,9 +7,10 @@
 //
 
 import Foundation
-class APIResult
+class PlayersAPIResult
 {
     let arrayOfPlayers: [[String: AnyObject]]
+    
     init(resultDict: [String: AnyObject])
     {
         arrayOfPlayers = resultDict["content"] as! [[String: AnyObject]]

@@ -9,22 +9,21 @@
 import UIKit
 //protocol APIControllerProtocol
 //{
-//    func getThePlayers(thePlayersArray: [String: AnyObject])
+//    func getTheMatches(thePlayersArray: [String: AnyObject])
 //}
 
 
-class FirstViewController: UIViewController //APIControllerProtocol
+class FirstViewController: UIViewController // APIControllerProtocol
 {
+    
 
-    //var anAPIController: APIController!
+    var anAPIController: APIController!
 
 
-    override func viewDidLoad() {
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
         //anAPIController = APIController(delegate: self)
-
-        
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,24 +36,9 @@ class FirstViewController: UIViewController //APIControllerProtocol
         //anAPIController.getPingPlayersAPI()
     }
     
-//    func getThePlayers(thePlayersArray: [String : AnyObject])
+//    func getTheMatches(thePlayersArray: [String : AnyObject])
 //    {
-//        var playersArray = [PlayerBuilder]()
-//        let anAPIResult = APIResult(resultDict: thePlayersArray)
-//        
-//        for aPlayer in anAPIResult.playersArray
-//        {
-//            let newPlayer = PlayerBuilder(playerBuilderDict: aPlayer)
-//            playersArray.append(newPlayer)
-//        }
-////        let newGameClues = newCluesArray
-////        let newGame = Game()
-////        newGame.clueArray = newGameClues
-////        
-////        arrayOfGames.append(newGame)
-//        
-//        
-//        print(thePlayersArray)
+//
 //        
 //    }
 

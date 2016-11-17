@@ -11,20 +11,22 @@ import UIKit
 protocol APIControllerProtocol
 {
     func getThePlayers(thePlayersArray: [String: AnyObject])
+    func getTheMatches(theMatchesArray: [String: AnyObject])
 }
 
 class StandingsTableViewController: UITableViewController, APIControllerProtocol
 {
+    
     var anAPIController: APIController!
     var players: [PlayerBuilder] = []
+    var matches: [MatchBuilder] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         anAPIController = APIController(delegate: self)
         anAPIController.getPingPlayersAPI()
-        
-        
-
+        anAPIController.getPingMatchesAPI()
+       
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -104,6 +106,11 @@ class StandingsTableViewController: UITableViewController, APIControllerProtocol
     {
         if segue.identifier == "playerBioSegue"
         {
+            let detailVC = segue.destination as! PlayerDetailViewController
+            let selectedCell = sender as! UITableViewCell
+            let indexPath = tableView.indexPath(for: selectedCell)
+            let selectedPlayer = players[(indexPath?.row)!]
+            detailVC.player = selectedPlayer
             
         }
         // Get the new view controller using segue.destinationViewController.
@@ -114,7 +121,7 @@ class StandingsTableViewController: UITableViewController, APIControllerProtocol
     func getThePlayers(thePlayersArray: [String : AnyObject])
     {
         var allPlayers = [PlayerBuilder]()
-        let anAPIResult = APIResult(resultDict: thePlayersArray)
+        let anAPIResult = PlayersAPIResult(resultDict: thePlayersArray)
         
         for aPlayer in anAPIResult.arrayOfPlayers
         {
@@ -123,6 +130,20 @@ class StandingsTableViewController: UITableViewController, APIControllerProtocol
         }
         self.players = allPlayers
         self.tableView.reloadData()
+    }
+    
+    func getTheMatches(theMatchesArray: [String : AnyObject])
+    {
+        var allMatches = [MatchBuilder]()
+        let anAPIResult = MatchesAPIResult(resultDict: theMatchesArray)
+        
+        for aMatch in anAPIResult.arrayOfMatches
+        {
+            let newMatch = MatchBuilder(matchBuilderDict: aMatch)
+            allMatches.append(newMatch)
+        }
+        
+        print(theMatchesArray)
     }
 
 }
