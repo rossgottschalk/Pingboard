@@ -11,7 +11,7 @@ import UIKit
 protocol APIControllerProtocol
 {
     func getThePlayers(thePlayersArray: [String: AnyObject])
-    func getTheMatches(theMatchesArray: [String: AnyObject])
+    //func getTheMatches(theMatchesArray: [String: AnyObject])
 }
 
 class StandingsTableViewController: UITableViewController, APIControllerProtocol
@@ -24,8 +24,10 @@ class StandingsTableViewController: UITableViewController, APIControllerProtocol
     override func viewDidLoad() {
         super.viewDidLoad()
         anAPIController = APIController(delegate: self)
+        //anAPIController.postPlayer()
+        //anAPIController.postMatch()
         anAPIController.getPingPlayersAPI()
-        anAPIController.getPingMatchesAPI()
+        //anAPIController.getPingMatchesAPI()
        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -132,18 +134,18 @@ class StandingsTableViewController: UITableViewController, APIControllerProtocol
         self.tableView.reloadData()
     }
     
-    func getTheMatches(theMatchesArray: [String : AnyObject])
-    {
-        var allMatches = [MatchBuilder]()
-        let anAPIResult = MatchesAPIResult(resultDict: theMatchesArray)
-        
-        for aMatch in anAPIResult.arrayOfMatches
-        {
-            let newMatch = MatchBuilder(matchBuilderDict: aMatch)
-            allMatches.append(newMatch)
-        }
-        
-        print(theMatchesArray)
-    }
+//    func getTheMatches(theMatchesArray: [String : AnyObject])
+//    {
+//        var allMatches = [MatchBuilder]()
+//        let anAPIResult = MatchesAPIResult(resultDict: theMatchesArray)
+//        
+//        for aMatch in anAPIResult.arrayOfMatches
+//        {
+//            let newMatch = MatchBuilder(matchBuilderDict: aMatch)
+//            allMatches.append(newMatch)
+//        }
+//        
+//        print(theMatchesArray)
+//    }
 
 }

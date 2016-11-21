@@ -13,8 +13,12 @@ class APIController
     {
         self.delegate = delegate
     }
+    init(delegate: APIControllerProtocolMatches) {
+        self.delegateMatch = delegate
+    }
     
     var delegate: APIControllerProtocol!
+    var delegateMatch: APIControllerProtocolMatches!
 
     func getPingPlayersAPI()// -> [[String: AnyObject]]
     {
@@ -72,7 +76,7 @@ class APIController
                 if let myJSON = myJSON
                 {
                     matchesResult = myJSON
-                    self.delegate.getTheMatches(theMatchesArray: matchesResult)
+                    self.delegateMatch.getTheMatches(theMatchesArray: matchesResult)
                 }
             }
             catch
@@ -85,14 +89,13 @@ class APIController
     
     func postMatch()
     {
-        let aMatch = ["playerOne": "Raul Lavin", "playerTwo": "Tom", "playerOneScore": 21, "playerTwoScore": 7, "dates": "11/20/16", "id": -77] as [String : Any]
+        let aMatch = ["playerOne": "Raul Lavin", "playerTwo": "Nathaniel", "playerOneScore": 21, "playerTwoScore": 8, "dates": "11/20/16", "id": -77] as [String : Any]
         var jsonString: NSData?
         let url = URL(string:"https://tiy-pingpong-api.herokuapp.com/rest/match/save")
         let request = NSMutableURLRequest(url: url!)
         request.addValue("hGsZ9J4kvxbBNRqGSEM7JtfDlSU/qh8Z", forHTTPHeaderField: "x-authorization-key")
         request.addValue("application/json", forHTTPHeaderField: "content-type")
         request.httpMethod = "POST"
-        //request.httpBody = try JSONSerialization.data(withJSONObject: aMatch)
         do {
             jsonString = try JSONSerialization.data(withJSONObject: aMatch, options: []) as NSData?
         } catch let error as NSError {
@@ -102,7 +105,6 @@ class APIController
         let postString = jsonString
         request.httpBody = postString as Data?
         let task = URLSession.shared.dataTask(with: request as URLRequest){ data, response, error in
-
             if error != nil
             {
                 print("error=\(error)")
@@ -112,7 +114,38 @@ class APIController
         task.resume()
         return
     }
-
+    func postPlayer()
+    {
+        let aPlayer = ["name": "Ross Gottschalk", "nickname": "The Savage", "wins": 0, "losses": 0, "id": 0] as [String : Any]
+        var jsonString: NSData?
+        let url = URL(string:"https://tiy-pingpong-api.herokuapp.com/rest/player/save")
+        let request = NSMutableURLRequest(url: url!)
+        request.addValue("hGsZ9J4kvxbBNRqGSEM7JtfDlSU/qh8Z", forHTTPHeaderField: "x-authorization-key")
+        request.addValue("application/json", forHTTPHeaderField: "content-type")
+        request.httpMethod = "POST"
+        do {
+            jsonString = try JSONSerialization.data(withJSONObject: aPlayer, options: []) as NSData?
+        } catch let error as NSError {
+            print(error)
+        }
+        
+        let postString = jsonString
+        request.httpBody = postString as Data?
+        let task = URLSession.shared.dataTask(with: request as URLRequest){ data, response, error in
+            if error != nil
+            {
+                print("error=\(error)")
+                return
+            }
+        }
+        task.resume()
+        return
+    }
+    
+    func updatePlayer()
+    {
+        
+    }
     
     
 }
