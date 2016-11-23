@@ -52,43 +52,78 @@
             </objects>
             <point key="canvasLocation" x="750" y="-692"/>
         </scene>
-        <!--Scoreboard-->
-        <scene sceneID="wg7-f3-ORb">
+        <!--ScoreBoard-->
+        <scene sceneID="BOs-Dc-Hdw">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="ScoreboardViewController" customModule="Pingboard" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
-                        <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
+                <collectionViewController id="WVy-mo-JJm" customClass="MatchCenterCollectionViewController" customModule="Pingboard" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="suR-bD-0is">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Second View" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="zEq-FU-wV5">
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="top" secondItem="zEq-FU-wV5" secondAttribute="bottom" constant="8" symbolic="YES" id="Day-4N-Vmt"/>
-                            <constraint firstItem="NDk-cv-Gan" firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="JgO-Fn-dHn"/>
-                            <constraint firstAttribute="centerX" secondItem="zEq-FU-wV5" secondAttribute="centerX" id="qqM-NS-xev"/>
-                            <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Scoreboard" image="second" id="cPa-gy-q4n"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4Kd-uO-dNF">
+                            <size key="itemSize" width="309" height="214"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="c5R-rj-996" customClass="ScoreboardCell" customModule="Pingboard" customModuleProvider="target">
+                                <rect key="frame" x="33" y="0.0" width="309" height="214"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="309" height="214"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Winner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mM0-fS-530">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loser" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fml-Nu-UXd">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="W Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpd-vl-TzM">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z1j-36-Lem">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="hpd-vl-TzM" firstAttribute="leading" secondItem="c5R-rj-996" secondAttribute="leading" constant="30" id="6A6-vi-rwL"/>
+                                    <constraint firstItem="mM0-fS-530" firstAttribute="leading" secondItem="c5R-rj-996" secondAttribute="leading" constant="30" id="Afy-sF-EFp"/>
+                                    <constraint firstItem="mM0-fS-530" firstAttribute="top" secondItem="c5R-rj-996" secondAttribute="top" constant="30" id="AwA-67-aTJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="Z1j-36-Lem" secondAttribute="bottom" constant="30" id="Jft-PX-ayu"/>
+                                    <constraint firstAttribute="bottom" secondItem="hpd-vl-TzM" secondAttribute="bottom" constant="30" id="QR4-JY-QQJ"/>
+                                    <constraint firstItem="fml-Nu-UXd" firstAttribute="top" secondItem="c5R-rj-996" secondAttribute="top" constant="30" id="hqc-KK-JpB"/>
+                                    <constraint firstAttribute="trailing" secondItem="fml-Nu-UXd" secondAttribute="trailing" constant="30" id="sU6-9D-WmC"/>
+                                    <constraint firstAttribute="trailing" secondItem="Z1j-36-Lem" secondAttribute="trailing" constant="30" id="sYt-T3-EbX"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="loserLabel" destination="fml-Nu-UXd" id="q5N-81-B3w"/>
+                                    <outlet property="loserScore" destination="Z1j-36-Lem" id="kSo-1s-P9H"/>
+                                    <outlet property="winnerLabel" destination="mM0-fS-530" id="Ajd-BO-gFl"/>
+                                    <outlet property="winnerScore" destination="hpd-vl-TzM" id="vl5-kg-8QH"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="WVy-mo-JJm" id="zFg-8p-Ocz"/>
+                            <outlet property="delegate" destination="WVy-mo-JJm" id="Tgl-r1-28D"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" title="ScoreBoard" id="8oJ-KZ-qkF"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u3z-Te-foU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="750" y="0.0"/>
+            <point key="canvasLocation" x="893" y="27"/>
         </scene>
         <!--Standings-->
         <scene sceneID="hkc-BD-1mR">
@@ -169,8 +204,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="AUW-EU-eVB" kind="relationship" relationship="viewControllers" id="l4w-sD-y76"/>
+                        <segue destination="WVy-mo-JJm" kind="relationship" relationship="viewControllers" id="18i-2F-lTM"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -180,6 +215,5 @@
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
     </resources>
 </document>

@@ -24,7 +24,7 @@ class APIController
     {
         var playersResult = [String: AnyObject]()
         
-        let url = URL(string:"https://tiy-pingpong-api.herokuapp.com/rest/player/list")
+        let url = URL(string:"https://tiy-pingpong.herokuapp.com/rest/player/list")
         var request = URLRequest(url: url!)
         request.addValue("hGsZ9J4kvxbBNRqGSEM7JtfDlSU/qh8Z", forHTTPHeaderField: "x-authorization-key")
         //request.httpMethod = "GET"
@@ -58,7 +58,7 @@ class APIController
     func getPingMatchesAPI()
     {
         var matchesResult = [String: AnyObject]()
-        let url = URL(string:"https://tiy-pingpong-api.herokuapp.com/rest/match/list")
+        let url = URL(string:"https://tiy-pingpong.herokuapp.com/rest/match/list")
         var request = URLRequest(url: url!)
         request.addValue("hGsZ9J4kvxbBNRqGSEM7JtfDlSU/qh8Z", forHTTPHeaderField: "x-authorization-key")
         let task = URLSession.shared.dataTask(with: request as URLRequest)
@@ -91,7 +91,7 @@ class APIController
     {
         let aMatch = ["playerOne": "Raul Lavin", "playerTwo": "Nathaniel", "playerOneScore": 21, "playerTwoScore": 8, "dates": "11/20/16", "id": -77] as [String : Any]
         var jsonString: NSData?
-        let url = URL(string:"https://tiy-pingpong-api.herokuapp.com/rest/match/save")
+        let url = URL(string:"https://tiy-pingpong.herokuapp.com/rest/match/save")
         let request = NSMutableURLRequest(url: url!)
         request.addValue("hGsZ9J4kvxbBNRqGSEM7JtfDlSU/qh8Z", forHTTPHeaderField: "x-authorization-key")
         request.addValue("application/json", forHTTPHeaderField: "content-type")
@@ -118,7 +118,7 @@ class APIController
     {
         let aPlayer = ["name": "Ross Gottschalk", "nickname": "The Savage", "wins": 0, "losses": 0, "id": 0] as [String : Any]
         var jsonString: NSData?
-        let url = URL(string:"https://tiy-pingpong-api.herokuapp.com/rest/player/save")
+        let url = URL(string:"https://tiy-pingpong.herokuapp.com/rest/player/save")
         let request = NSMutableURLRequest(url: url!)
         request.addValue("hGsZ9J4kvxbBNRqGSEM7JtfDlSU/qh8Z", forHTTPHeaderField: "x-authorization-key")
         request.addValue("application/json", forHTTPHeaderField: "content-type")

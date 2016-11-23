@@ -11,19 +11,19 @@ class MatchBuilder
 {
     let date: String
     let id: Int
-    let player1: String
-    let player2: String
-    let player1Score: Int
-    let player2Score: Int
+    let winner: [String : AnyObject]
+    let loser: [String : AnyObject]
+    let winningScore: Int
+    let losingScore: Int
     
     init(matchBuilderDict: [String: AnyObject])
     {
         date = matchBuilderDict["dates"] as! String
         id = matchBuilderDict["id"] as! Int
-        player1 = matchBuilderDict["playerOne"] as! String
-        player2 = matchBuilderDict["playerTwo"] as! String
-        player1Score = matchBuilderDict["playerOneScore"] as! Int
-        player2Score = matchBuilderDict["playerTwoScore"] as! Int
+        winner = matchBuilderDict["winner"] as! [String : AnyObject]
+        loser = matchBuilderDict["loser"] as! [String : AnyObject]
+        winningScore = matchBuilderDict["winningScore"] as! Int
+        losingScore = matchBuilderDict["loosingScore"] as! Int
     }
 
 }

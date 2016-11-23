@@ -58,7 +58,7 @@ class StandingsTableViewController: UITableViewController, APIControllerProtocol
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         let player = players[indexPath.row]
         cell.textLabel?.text = player.name
-        cell.detailTextLabel?.text = "\(player.wins)-\(player.losses)"
+        cell.detailTextLabel?.text = "\(player.winningMatches.count)-\(player.losingMatches.count)"
         // Configure the cell...
 
         return cell
@@ -124,28 +124,45 @@ class StandingsTableViewController: UITableViewController, APIControllerProtocol
     {
         var allPlayers = [PlayerBuilder]()
         let anAPIResult = PlayersAPIResult(resultDict: thePlayersArray)
+        //let aWinsAndLossesResult = PlayerBuilder(playerBuilderDict: thePlayersArray)
         
         for aPlayer in anAPIResult.arrayOfPlayers
         {
             let newPlayer = PlayerBuilder(playerBuilderDict: aPlayer)
             allPlayers.append(newPlayer)
         }
+//        for aPlayer in aWinsAndLossesResult.winningMatches
+//        {
+//            let newPlayer = PlayerBuilder
+//        }
+        //print(thePlayersArray)
         self.players = allPlayers
         self.tableView.reloadData()
+        
     }
     
-//    func getTheMatches(theMatchesArray: [String : AnyObject])
-//    {
-//        var allMatches = [MatchBuilder]()
-//        let anAPIResult = MatchesAPIResult(resultDict: theMatchesArray)
-//        
-//        for aMatch in anAPIResult.arrayOfMatches
-//        {
-//            let newMatch = MatchBuilder(matchBuilderDict: aMatch)
-//            allMatches.append(newMatch)
-//        }
-//        
-//        print(theMatchesArray)
-//    }
+    //func not being called
+    func getTheMatches(matchesFromPlayers: [String : AnyObject])
+    {
+        var allMatches = [MatchBuilder]()
+        let getWsandLs = PlayerBuilder(playerBuilderDict: matchesFromPlayers)
+        
+        
+        
+        for aMatch in getWsandLs.losingMatches
+        {
+            let newMatch = MatchBuilder(matchBuilderDict: aMatch)
+            allMatches.append(newMatch)
+        }
+        for aMatch in getWsandLs.winningMatches
+        {
+            let newMatch = MatchBuilder(matchBuilderDict: aMatch)
+            allMatches.append(newMatch)
+        }
+        self.matches = allMatches
+        
+        
+        print(allMatches)
+    }
 
 }

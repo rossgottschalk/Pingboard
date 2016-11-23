@@ -10,7 +10,7 @@ import Foundation
 class PlayersAPIResult
 {
     let arrayOfPlayers: [[String: AnyObject]]
-    
+
     init(resultDict: [String: AnyObject])
     {
         arrayOfPlayers = resultDict["content"] as! [[String: AnyObject]]
