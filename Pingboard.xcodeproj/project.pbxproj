@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5B34D2E71DE622E100268C2C /* MatchesOfPlayerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B34D2E61DE622E100268C2C /* MatchesOfPlayerBuilder.swift */; };
 		5B34D2EA1DE645B400268C2C /* MatchCenterCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B34D2E91DE645B400268C2C /* MatchCenterCollectionViewController.swift */; };
 		5B34D2EC1DE6463500268C2C /* ScoreboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B34D2EB1DE6463500268C2C /* ScoreboardCell.swift */; };
 		5B79ED3F1DD6288D000F0C26 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B79ED3E1DD6288D000F0C26 /* APIController.swift */; };
@@ -25,7 +24,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5B34D2E61DE622E100268C2C /* MatchesOfPlayerBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchesOfPlayerBuilder.swift; sourceTree = SOURCE_ROOT; };
 		5B34D2E91DE645B400268C2C /* MatchCenterCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchCenterCollectionViewController.swift; sourceTree = "<group>"; };
 		5B34D2EB1DE6463500268C2C /* ScoreboardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreboardCell.swift; sourceTree = "<group>"; };
 		5B79ED3E1DD6288D000F0C26 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
@@ -58,10 +56,9 @@
 		5B34D2E81DE6234800268C2C /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5BD3D9501DDE3A92007322B1 /* MatchesAPIResult.swift */,
-				5BD3D94E1DDE39CD007322B1 /* MatchBuilder.swift */,
-				5B34D2E61DE622E100268C2C /* MatchesOfPlayerBuilder.swift */,
 				5B79ED401DD62B03000F0C26 /* PlayerBuilder.swift */,
+				5BD3D94E1DDE39CD007322B1 /* MatchBuilder.swift */,
+				5BD3D9501DDE3A92007322B1 /* MatchesAPIResult.swift */,
 				5BE1D68D1DDBB61700695166 /* PlayersAPIResult.swift */,
 			);
 			name = Models;
@@ -177,7 +174,6 @@
 			files = (
 				5BD3D9511DDE3A92007322B1 /* MatchesAPIResult.swift in Sources */,
 				5BC38F691DD6230000FB93AF /* AppDelegate.swift in Sources */,
-				5B34D2E71DE622E100268C2C /* MatchesOfPlayerBuilder.swift in Sources */,
 				5BD3D94F1DDE39CD007322B1 /* MatchBuilder.swift in Sources */,
 				5BC38F6B1DD6230000FB93AF /* FirstViewController.swift in Sources */,
 				5BC38F7D1DD6261400FB93AF /* StandingsTableViewController.swift in Sources */,

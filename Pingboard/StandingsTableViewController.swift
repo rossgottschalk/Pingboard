@@ -58,7 +58,7 @@ class StandingsTableViewController: UITableViewController, APIControllerProtocol
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         let player = players[indexPath.row]
         cell.textLabel?.text = player.name
-        cell.detailTextLabel?.text = "\(player.winningMatches.count)-\(player.losingMatches.count)"
+        cell.detailTextLabel?.text = "\(player.arrayOfWins.count)-\(player.arrayOfLosses.count)"
         // Configure the cell...
 
         return cell
@@ -122,6 +122,7 @@ class StandingsTableViewController: UITableViewController, APIControllerProtocol
     
     func getThePlayers(thePlayersArray: [String : AnyObject])
     {
+        //var playerMatches = [String: AnyObject]()
         var allPlayers = [PlayerBuilder]()
         let anAPIResult = PlayersAPIResult(resultDict: thePlayersArray)
         //let aWinsAndLossesResult = PlayerBuilder(playerBuilderDict: thePlayersArray)
@@ -131,6 +132,9 @@ class StandingsTableViewController: UITableViewController, APIControllerProtocol
             let newPlayer = PlayerBuilder(playerBuilderDict: aPlayer)
             allPlayers.append(newPlayer)
         }
+        
+        
+        
 //        for aPlayer in aWinsAndLossesResult.winningMatches
 //        {
 //            let newPlayer = PlayerBuilder
@@ -149,20 +153,21 @@ class StandingsTableViewController: UITableViewController, APIControllerProtocol
         
         
         
-        for aMatch in getWsandLs.losingMatches
+        for aMatch in getWsandLs.arrayOfLosses
         {
             let newMatch = MatchBuilder(matchBuilderDict: aMatch)
             allMatches.append(newMatch)
         }
-        for aMatch in getWsandLs.winningMatches
+        for aMatch in getWsandLs.arrayOfWins
         {
             let newMatch = MatchBuilder(matchBuilderDict: aMatch)
             allMatches.append(newMatch)
         }
         self.matches = allMatches
         
-        
-        print(allMatches)
+        print(matches)
     }
+    
+    
 
 }

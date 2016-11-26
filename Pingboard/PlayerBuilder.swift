@@ -11,22 +11,19 @@ class PlayerBuilder
 {
     let name: String
     let nickname: String
-    let winningMatches: [[String : AnyObject]]
-    let losingMatches: [[String : AnyObject]]
+    let arrayOfWins: [[String : AnyObject]]
+    let arrayOfLosses: [[String : AnyObject]]
     let playerID: Int
-    
+    //var lossesDict
     init(playerBuilderDict: [String: AnyObject])
     {
         name = playerBuilderDict["name"] as! String
         nickname = playerBuilderDict["nickname"] as! String
-        winningMatches = playerBuilderDict["wins"] as! [[String : AnyObject]]
-        losingMatches = playerBuilderDict["losses"] as! [[String : AnyObject]]
+        arrayOfWins = playerBuilderDict["wins"] as! [[String : AnyObject]]
+        arrayOfLosses = playerBuilderDict["losses"] as! [[String : AnyObject]]
         playerID = playerBuilderDict["id"] as! Int
     }
-    struct winsAndLosses {
-        
-    }
-
+    
 }
 
 struct winsAndLosses

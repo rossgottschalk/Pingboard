@@ -65,12 +65,11 @@ class MatchCenterCollectionViewController: UICollectionViewController, APIContro
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ScoreboardCell
         let match = matches[indexPath.row]
-        cell.winnerLabel.text = "winner"
-        cell.loserLabel.text = "loser"
+        cell.winnerLabel.text = "\(match.winnerName) ✓"
+        cell.loserLabel.text = match.loserName
         cell.winnerScore.text = "\(match.winningScore)"
         cell.loserScore.text = "\(match.losingScore)"
-    
-        // Configure the cell
+        cell.dateLabel.text = match.date
     
         return cell
     }

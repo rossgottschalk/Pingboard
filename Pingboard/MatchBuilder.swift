@@ -11,8 +11,10 @@ class MatchBuilder
 {
     let date: String
     let id: Int
-    let winner: [String : AnyObject]
-    let loser: [String : AnyObject]
+    var winnerDict: [String : AnyObject]
+    let loserDict: [String : AnyObject]
+    let winnerName: String
+    let loserName: String
     let winningScore: Int
     let losingScore: Int
     
@@ -20,8 +22,10 @@ class MatchBuilder
     {
         date = matchBuilderDict["dates"] as! String
         id = matchBuilderDict["id"] as! Int
-        winner = matchBuilderDict["winner"] as! [String : AnyObject]
-        loser = matchBuilderDict["loser"] as! [String : AnyObject]
+        winnerDict = matchBuilderDict["winner"] as! [String : AnyObject]
+        loserDict = matchBuilderDict["loser"] as! [String : AnyObject]
+        winnerName = matchBuilderDict["winner"]?["name"] as! String
+        loserName = matchBuilderDict["loser"]?["name"] as! String
         winningScore = matchBuilderDict["winningScore"] as! Int
         losingScore = matchBuilderDict["loosingScore"] as! Int
     }

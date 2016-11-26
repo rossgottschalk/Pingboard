@@ -14,6 +14,7 @@ class ScoreboardCell: UICollectionViewCell
     @IBOutlet weak var loserLabel: UILabel!
     @IBOutlet weak var winnerScore: UILabel!
     @IBOutlet weak var loserScore: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     
     
