@@ -10,11 +10,12 @@ import UIKit
 
 class PlayerDetailViewController: UIViewController
 {
-    var player: PlayerBuilder?
+    var player: Player?
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
     }
 
     override func didReceiveMemoryWarning()

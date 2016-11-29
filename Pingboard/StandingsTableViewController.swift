@@ -10,7 +10,7 @@ import UIKit
 
 protocol APIControllerProtocol
 {
-    func getThePlayers(thePlayersArray: [String: AnyObject])
+    func getThePlayers(playersDict: [String: AnyObject])
     //func getTheMatches(theMatchesArray: [String: AnyObject])
 }
 
@@ -18,15 +18,15 @@ class StandingsTableViewController: UITableViewController, APIControllerProtocol
 {
     
     var anAPIController: APIController!
-    var players: [PlayerBuilder] = []
-    var matches: [MatchBuilder] = []
-
+    var players: [Player] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Standings"
         anAPIController = APIController(delegate: self)
         //anAPIController.postPlayer()
         //anAPIController.postMatch()
         anAPIController.getPingPlayersAPI()
+        
         //anAPIController.getPingMatchesAPI()
        
         // Uncomment the following line to preserve selection between presentations
@@ -108,7 +108,7 @@ class StandingsTableViewController: UITableViewController, APIControllerProtocol
     {
         if segue.identifier == "playerBioSegue"
         {
-            let detailVC = segue.destination as! PlayerDetailViewController
+            let detailVC = segue.destination as! PlayerMatchesCollectionViewController
             let selectedCell = sender as! UITableViewCell
             let indexPath = tableView.indexPath(for: selectedCell)
             let selectedPlayer = players[(indexPath?.row)!]
@@ -120,54 +120,21 @@ class StandingsTableViewController: UITableViewController, APIControllerProtocol
     }
 
     
-    func getThePlayers(thePlayersArray: [String : AnyObject])
+    func getThePlayers(playersDict: [String : AnyObject])
     {
-        //var playerMatches = [String: AnyObject]()
-        var allPlayers = [PlayerBuilder]()
-        let anAPIResult = PlayersAPIResult(resultDict: thePlayersArray)
-        //let aWinsAndLossesResult = PlayerBuilder(playerBuilderDict: thePlayersArray)
-        
-        for aPlayer in anAPIResult.arrayOfPlayers
+        var allPlayers = [Player]()
+        let anAPIResult = APIResult(resultDict: playersDict)
+
+        for aPlayer in anAPIResult.resultArray
         {
-            let newPlayer = PlayerBuilder(playerBuilderDict: aPlayer)
+            let newPlayer = Player(playerBuilderDict: aPlayer)
             allPlayers.append(newPlayer)
         }
-        
-        
-        
-//        for aPlayer in aWinsAndLossesResult.winningMatches
-//        {
-//            let newPlayer = PlayerBuilder
-//        }
-        //print(thePlayersArray)
         self.players = allPlayers
+        players.sort(by: {$0.winningPercentage > $1.winningPercentage})
+
         self.tableView.reloadData()
         
     }
-    
-    //func not being called
-    func getTheMatches(matchesFromPlayers: [String : AnyObject])
-    {
-        var allMatches = [MatchBuilder]()
-        let getWsandLs = PlayerBuilder(playerBuilderDict: matchesFromPlayers)
-        
-        
-        
-        for aMatch in getWsandLs.arrayOfLosses
-        {
-            let newMatch = MatchBuilder(matchBuilderDict: aMatch)
-            allMatches.append(newMatch)
-        }
-        for aMatch in getWsandLs.arrayOfWins
-        {
-            let newMatch = MatchBuilder(matchBuilderDict: aMatch)
-            allMatches.append(newMatch)
-        }
-        self.matches = allMatches
-        
-        print(matches)
-    }
-    
-    
 
 }

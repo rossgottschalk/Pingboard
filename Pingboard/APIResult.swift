@@ -1,5 +1,5 @@
 //
-//  MatchesAPIResult.swift
+//  APIResult.swift
 //  Pingboard
 //
 //  Created by Ross Gottschalk on 11/17/16.
@@ -7,12 +7,13 @@
 //
 
 import Foundation
-class MatchesAPIResult
+class APIResult
 {
-    let arrayOfMatches: [[String: AnyObject]]
+    let resultArray: [[String: AnyObject]]
+    
     init(resultDict: [String: AnyObject])
     {
-        arrayOfMatches = resultDict["content"] as! [[String: AnyObject]]
+        resultArray = resultDict["content"] as! [[String: AnyObject]]
     }
     
 }

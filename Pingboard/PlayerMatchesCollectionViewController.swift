@@ -1,40 +1,45 @@
 //
-//  MatchCenterCollectionViewController.swift
+//  PlayerMatchesCollectionViewController.swift
 //  Pingboard
 //
-//  Created by Ross Gottschalk on 11/23/16.
+//  Created by Ross Gottschalk on 11/28/16.
 //  Copyright © 2016 The Iron Yard. All rights reserved.
 //
 
 import UIKit
 
-protocol APIControllerProtocolMatches
+protocol APIControllerProtocolPlayerMatches
 {
-    func getTheMatches(matchesDict: [String: AnyObject])
+    func getPlayerMatches(playerMatchesDict: [String: AnyObject])
 }
 
-
-class MatchCenterCollectionViewController: UICollectionViewController, APIControllerProtocolMatches
-{
-    var anAPIController: APIController!
+//private let reuseIdentifier = "Cell"
+class PlayerMatchesCollectionViewController: UICollectionViewController, APIControllerProtocolPlayerMatches {
+    
+    var player: Player?
     var matches: [Match] = []
+    var anAPIController: APIController!
 
-    override func viewDidLoad() {
+    
+    override func viewDidLoad(){
+        self.title = "Player Bio"
         super.viewDidLoad()
-        anAPIController = APIController(delegate: self as APIControllerProtocolMatches)
-        anAPIController.getPingMatchesAPI()
+        self.navigationController?.navigationBar.isHidden = false
+        anAPIController = APIController(delegate: self as APIControllerProtocolPlayerMatches)
+        anAPIController.getPlayerMatchesAPI()
 
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-//        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -60,16 +65,24 @@ class MatchCenterCollectionViewController: UICollectionViewController, APIContro
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
         return matches.count
+        
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ScoreboardCell
+//        let match: MatchBuilder = (player?.arrayOfLosses)![indexPath.row]
+//        
         let match = matches[indexPath.row]
+//            
+//        
         cell.winnerLabel.text = "\(match.winnerName) ✓"
         cell.loserLabel.text = match.loserName
         cell.winnerScore.text = "\(match.winningScore)"
         cell.loserScore.text = "\(match.losingScore)"
         cell.dateLabel.text = match.date
+        
+    
+        // Configure the cell
     
         return cell
     }
@@ -104,11 +117,13 @@ class MatchCenterCollectionViewController: UICollectionViewController, APIContro
     
     }
     */
-    
-    func getTheMatches(matchesDict: [String: AnyObject])
+
+    func getPlayerMatches(playerMatchesDict: [String : AnyObject])
     {
+        let playerID = player?.playerID
         var allMatches = [Match]()
-        let anAPIResult = APIResult(resultDict: matchesDict)
+        var sortedMatches = [Match]()
+        let anAPIResult = APIResult(resultDict: playerMatchesDict)
         //let aWinsAndLossesResult = PlayerBuilder(playerBuilderDict: thePlayersArray)
         
         for aMatch in anAPIResult.resultArray
@@ -116,16 +131,19 @@ class MatchCenterCollectionViewController: UICollectionViewController, APIContro
             let newMatch = Match(matchBuilderDict: aMatch)
             allMatches.append(newMatch)
         }
-        //        for aPlayer in aWinsAndLossesResult.winningMatches
-        //        {
-        //            let newPlayer = PlayerBuilder
-        //        }
-        //print(thePlayersArray)
-        self.matches = allMatches
+            for aMatch in allMatches
+            {
+                if aMatch.winnerID == playerID!
+                {
+                    sortedMatches.append(aMatch)
+                }
+                if aMatch.loserID == playerID!
+                {
+                    sortedMatches.append(aMatch)
+                }
+            }
+
+        self.matches = sortedMatches
         self.collectionView?.reloadData()
-
-        //print(theMatchesArray)
     }
-
-
 }
