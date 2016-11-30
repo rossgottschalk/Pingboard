@@ -61,7 +61,7 @@
         <scene sceneID="BOs-Dc-Hdw">
             <objects>
                 <collectionViewController id="WVy-mo-JJm" customClass="MatchCenterCollectionViewController" customModule="Pingboard" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="suR-bD-0is">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="suR-bD-0is">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -73,7 +73,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="c5R-rj-996" customClass="ScoreboardCell" customModule="Pingboard" customModuleProvider="target">
-                                <rect key="frame" x="61" y="0.0" width="254" height="140"/>
+                                <rect key="frame" x="60.5" y="0.0" width="254" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="254" height="140"/>
@@ -152,18 +152,18 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qId-6i-zxJ" id="xfr-XO-2ST">
-                                    <frame key="frameInset" width="342" height="43"/>
+                                    <frame key="frameInset" width="342" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pfk-nh-Pd5">
-                                            <frame key="frameInset" minX="15" minY="11" width="34" height="21"/>
+                                            <frame key="frameInset" minX="15" minY="12" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BOC-Kx-Gnn">
-                                            <frame key="frameInset" minX="296" minY="11" width="44" height="21"/>
+                                            <frame key="frameInset" minX="296" minY="12" width="44" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -199,9 +199,9 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
+                        <segue destination="Kk8-6Y-iao" kind="relationship" relationship="viewControllers" id="kBt-Xi-zA1"/>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="ZXo-eH-Fdd" kind="relationship" relationship="viewControllers" id="18i-2F-lTM"/>
-                        <segue destination="Kk8-6Y-iao" kind="relationship" relationship="viewControllers" id="kBt-Xi-zA1"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -212,7 +212,7 @@
         <scene sceneID="mM7-F1-BFy">
             <objects>
                 <collectionViewController hidesBottomBarWhenPushed="YES" id="scG-xI-zux" customClass="PlayerMatchesCollectionViewController" customModule="Pingboard" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="v5j-rv-bNa">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="v5j-rv-bNa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -224,7 +224,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="aaC-qW-T1u" customClass="ScoreboardCell" customModule="Pingboard" customModuleProvider="target">
-                                <rect key="frame" x="61" y="0.0" width="254" height="140"/>
+                                <rect key="frame" x="60.5" y="0.0" width="254" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="254" height="140"/>
@@ -308,11 +308,11 @@
             </objects>
             <point key="canvasLocation" x="990" y="0.0"/>
         </scene>
-        <!--Item-->
+        <!--Standings-->
         <scene sceneID="fS7-dd-gYY">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kk8-6Y-iao" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="07e-FS-ymq"/>
+                    <tabBarItem key="tabBarItem" title="Standings" id="07e-FS-ymq"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="y59-mH-TXh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

@@ -7,23 +7,28 @@
 //
 
 import UIKit
-//protocol APIControllerProtocol
+
+//protocol ListOfPlayersProtocol
 //{
-//    func getTheMatches(thePlayersArray: [String: AnyObject])
+//    func getThePlayers(playersArray: [Player])
 //}
 
 
-class FirstViewController: UIViewController // APIControllerProtocol
+class FirstViewController: UIViewController//, ListOfPlayersProtocol
 {
+    var anAPIController: APIController!
+    var players: [Player] = []
+    var standingsVC: StandingsTableViewController!
+    
     
 
-    var anAPIController: APIController!
 
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        //anAPIController = APIController(delegate: self)
+        getArrayOfPlayers()
+                //anAPIController = APIController(delegate: self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,15 +38,38 @@ class FirstViewController: UIViewController // APIControllerProtocol
 
     @IBAction func buttonPressed(_ sender: UIButton)
     {
-        //anAPIController.getPingPlayersAPI()
+        anAPIController.postMatch()
     }
     
-//    func getTheMatches(thePlayersArray: [String : AnyObject])
+    func getArrayOfPlayers()
+    {
+        if let loadedData = UserDefaults.standard.data(forKey: "playerData")
+        {
+            let loadedPlayer = NSKeyedUnarchiver.unarchiveObject(with: loadedData) as! [Player]
+            print(loadedPlayer.count)
+        }
+        
+    }
+    
+//    func getThePlayers(playersArray: [Player])
 //    {
-//
+//        self.players = playersArray
+//        print("************************************\(players.count)")
+////        var allPlayers = [Player]()
+////        let anAPIResult = APIResult(resultDict: playersDict)
+////        
+////        
+////        for aPlayer in anAPIResult.resultArray
+////        {
+////            let newPlayer = Player(playerBuilderDict: aPlayer)
+////            allPlayers.append(newPlayer)
+////        }
+////        
+////        self.players = allPlayers
+////        players.sort(by: {$0.winningPercentage > $1.winningPercentage})
 //        
+//        //self.tableView.reloadData()
 //    }
-
 
 }
 

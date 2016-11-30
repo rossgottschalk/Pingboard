@@ -18,7 +18,10 @@ class StandingsTableViewController: UITableViewController, APIControllerProtocol
 {
     
     var anAPIController: APIController!
+    var firstVC: FirstViewController!
     var players: [Player] = []
+    var defaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Standings"
@@ -125,6 +128,7 @@ class StandingsTableViewController: UITableViewController, APIControllerProtocol
         var allPlayers = [Player]()
         let anAPIResult = APIResult(resultDict: playersDict)
 
+        
         for aPlayer in anAPIResult.resultArray
         {
             let newPlayer = Player(playerBuilderDict: aPlayer)
@@ -132,7 +136,11 @@ class StandingsTableViewController: UITableViewController, APIControllerProtocol
         }
         self.players = allPlayers
         players.sort(by: {$0.winningPercentage > $1.winningPercentage})
-
+        
+        
+        let playerData = NSKeyedArchiver.archivedData(withRootObject: self.players)
+        UserDefaults.standard.set(playerData, forKey:"playerData")
+        
         self.tableView.reloadData()
         
     }

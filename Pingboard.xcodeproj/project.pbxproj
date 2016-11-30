@@ -82,14 +82,14 @@
 		5BC38F671DD6230000FB93AF /* Pingboard */ = {
 			isa = PBXGroup;
 			children = (
-				5B34D2EB1DE6463500268C2C /* ScoreboardCell.swift */,
 				5BC38F681DD6230000FB93AF /* AppDelegate.swift */,
-				5B79ED3E1DD6288D000F0C26 /* APIController.swift */,
+				5BC38F7C1DD6261400FB93AF /* StandingsTableViewController.swift */,
+				5B872A031DECA20A001CF668 /* PlayerMatchesCollectionViewController.swift */,
 				5BC38F6A1DD6230000FB93AF /* FirstViewController.swift */,
 				5B34D2E91DE645B400268C2C /* MatchCenterCollectionViewController.swift */,
+				5B79ED3E1DD6288D000F0C26 /* APIController.swift */,
 				5BD3D94C1DDE29D4007322B1 /* PlayerDetailViewController.swift */,
-				5B872A031DECA20A001CF668 /* PlayerMatchesCollectionViewController.swift */,
-				5BC38F7C1DD6261400FB93AF /* StandingsTableViewController.swift */,
+				5B34D2EB1DE6463500268C2C /* ScoreboardCell.swift */,
 				5B34D2E81DE6234800268C2C /* Models */,
 				5BC38F6E1DD6230000FB93AF /* Main.storyboard */,
 				5BC38F711DD6230000FB93AF /* Assets.xcassets */,

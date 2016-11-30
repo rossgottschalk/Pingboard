@@ -132,12 +132,12 @@ class APIController
     
     func postMatch()
     {
-        let aMatch = ["playerOne": "Raul Lavin", "playerTwo": "Nathaniel", "playerOneScore": 21, "playerTwoScore": 8, "dates": "11/20/16", "id": -77] as [String : Any]
+        let aMatch = ["dates": "11/20/16", "loser": ["name": "Raul Lavin"], "losingScore": 8, "winner": ["name": "Nick James"], "winningScore": 21] as [String : Any]
         var jsonString: NSData?
         let url = URL(string:"https://tiy-pingpong.herokuapp.com/rest/match/save")
         let request = NSMutableURLRequest(url: url!)
         request.addValue("hGsZ9J4kvxbBNRqGSEM7JtfDlSU/qh8Z", forHTTPHeaderField: "x-authorization-key")
-        request.addValue("application/json", forHTTPHeaderField: "content-type")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
         do {
             jsonString = try JSONSerialization.data(withJSONObject: aMatch, options: []) as NSData?
@@ -184,11 +184,5 @@ class APIController
         task.resume()
         return
     }
-    
-    func updatePlayer()
-    {
-        
-    }
-    
     
 }

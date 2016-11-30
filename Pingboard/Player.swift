@@ -7,13 +7,13 @@
 //
 
 import Foundation
-class Player
+class Player: NSObject, NSCoding
 {
-    let name: String
-    let nickname: String
-    let arrayOfWins: [[String : AnyObject]]
-    let arrayOfLosses: [[String : AnyObject]]
-    let playerID: Int
+    var name: String
+    var nickname: String
+    var arrayOfWins: [[String : AnyObject]]
+    var arrayOfLosses: [[String : AnyObject]]
+    var playerID: Int
     
     var numberOfWins: Double
     var numberOfLosses: Double
@@ -44,8 +44,45 @@ class Player
         totalMatches = numberOfWins + numberOfLosses
         winningPercentage = numberOfWins/totalMatches
     }
+
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(nickname, forKey: "nickname")
+        aCoder.encode(playerID, forKey: "id")
+        aCoder.encode(arrayOfLosses, forKey: "losses")
+        aCoder.encode(arrayOfWins, forKey: "wins")
+        aCoder.encode(numberOfWins, forKey: "numberOfWins")
+        aCoder.encode(totalMatches, forKey: "totalMatches")
+        aCoder.encode(winningPercentage, forKey: "winPercent")
+        
+    }
     
+    required init(coder aDecoder: NSCoder) {
+        self.name = aDecoder.decodeObject(forKey: "name") as! String
+        self.nickname = aDecoder.decodeObject(forKey: "nickname") as! String
+        self.playerID = aDecoder.decodeObject(forKey: "id") as! Int
+        self.arrayOfLosses = aDecoder.decodeObject(forKey: "losses") as! [[String: AnyObject]]
+        self.arrayOfWins = aDecoder.decodeObject(forKey: "wins") as! [[String: AnyObject]]
+        self.numberOfWins = aDecoder.decodeObject(forKey: "numberOfWins") as! Double
+        self.numberOfLosses = aDecoder.decodeObject(forKey: "numberOfLosses") as! Double
+        self.totalMatches = aDecoder.decodeObject(forKey: "totalMatches") as! Double
+        self.winningPercentage = aDecoder.decodeObject(forKey: "winPercent") as! Double
+        
+    }
+    
+//    convenience init(name: String, nickname: String, playerID: Int, arrayOfLosses: [[String : AnyObject]], arrayOfWins: [[String: AnyObject]], numberOfWins: Double, numberOfLosses: Double, totalMatches: Double, winningPercentage: Double) {
+//        self.name = name
+//        self.nickname = nickname
+//        self.playerID = playerID
+//        self.arrayOfLosses = arrayOfLosses
+//        self.arrayOfWins = arrayOfWins
+//        self.numberOfLosses = numberOfLosses
+//        self.numberOfWins = numberOfWins
+//        self.totalMatches = totalMatches
+//        self.winningPercentage = winningPercentage
+//    }
 }
+
 
 //struct winsAndLosses
 //{
