@@ -60,13 +60,13 @@ class Player: NSObject, NSCoding
     required init(coder aDecoder: NSCoder) {
         self.name = aDecoder.decodeObject(forKey: "name") as! String
         self.nickname = aDecoder.decodeObject(forKey: "nickname") as! String
-        self.playerID = aDecoder.decodeObject(forKey: "id") as! Int
+        self.playerID = aDecoder.decodeInteger(forKey: "id") 
         self.arrayOfLosses = aDecoder.decodeObject(forKey: "losses") as! [[String: AnyObject]]
         self.arrayOfWins = aDecoder.decodeObject(forKey: "wins") as! [[String: AnyObject]]
-        self.numberOfWins = aDecoder.decodeObject(forKey: "numberOfWins") as! Double
-        self.numberOfLosses = aDecoder.decodeObject(forKey: "numberOfLosses") as! Double
-        self.totalMatches = aDecoder.decodeObject(forKey: "totalMatches") as! Double
-        self.winningPercentage = aDecoder.decodeObject(forKey: "winPercent") as! Double
+        self.numberOfWins = aDecoder.decodeDouble(forKey: "numberOfWins")
+        self.numberOfLosses = aDecoder.decodeDouble(forKey: "numberOfLosses")
+        self.totalMatches = aDecoder.decodeDouble(forKey: "totalMatches")
+        self.winningPercentage = aDecoder.decodeDouble(forKey: "winPercent")
         
     }
     
