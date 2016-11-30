@@ -124,7 +124,6 @@ class PlayerMatchesCollectionViewController: UICollectionViewController, APICont
         var allMatches = [Match]()
         var sortedMatches = [Match]()
         let anAPIResult = APIResult(resultDict: playerMatchesDict)
-        //let aWinsAndLossesResult = PlayerBuilder(playerBuilderDict: thePlayersArray)
         
         for aMatch in anAPIResult.resultArray
         {
