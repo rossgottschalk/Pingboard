@@ -14,19 +14,9 @@ class APIController
         self.delegate = delegate
     }
     
-    init(delegate: APIControllerProtocolMatches) {
-        self.delegateMatch = delegate
-    }
-    
-    init(delegate: APIControllerProtocolPlayerMatches) {
-        self.playerMatchesDelegate = delegate
-    }
-    
     var delegate: APIControllerProtocol!
-    var delegateMatch: APIControllerProtocolMatches!
-    var playerMatchesDelegate: APIControllerProtocolPlayerMatches!
     
-    func getPingPlayersAPI()// -> [[String: AnyObject]]
+    func getPingPlayersAPI()
     {
         var playersResult = [String: AnyObject]()
         
@@ -82,7 +72,7 @@ class APIController
                 if let myJSON = myJSON
                 {
                     matchesResult = myJSON
-                    self.delegateMatch.getTheMatches(matchesDict: matchesResult)
+                    self.delegate.getTheMatches(matchesDict: matchesResult)
                     //self.playerMatchesDelegate.getPlayerMatches(playerMatchesDict: matchesResult)
                 }
             }
@@ -93,42 +83,6 @@ class APIController
         }
         task.resume()
     }
-    
-    func getPlayerMatchesAPI()
-    {
-        var matchesResult = [String: AnyObject]()
-        let url = URL(string:"https://tiy-pingpong.herokuapp.com/rest/match/list")
-        var request = URLRequest(url: url!)
-        request.addValue("hGsZ9J4kvxbBNRqGSEM7JtfDlSU/qh8Z", forHTTPHeaderField: "x-authorization-key")
-        let task = URLSession.shared.dataTask(with: request as URLRequest)
-        {
-            data, response, error in
-            if error != nil
-            {
-                print("error=\(error)")
-                return
-            }
-            do
-            {
-                let myJSON =  try JSONSerialization.jsonObject(with: data!, options: .mutableContainers) as? [String: AnyObject]
-                
-                if let myJSON = myJSON
-                {
-                    matchesResult = myJSON
-                    //self.delegateMatch.getTheMatches(matchesDict: matchesResult)
-                    self.playerMatchesDelegate.getPlayerMatches(playerMatchesDict: matchesResult)
-                }
-            }
-            catch
-            {
-                print(error)
-            }
-        }
-        task.resume()
-    }
-
-    
-    
     
     func postMatch()
     {
@@ -184,5 +138,4 @@ class APIController
         task.resume()
         return
     }
-    
 }

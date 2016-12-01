@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 class ScoreboardCell: UICollectionViewCell
 {
     @IBOutlet weak var winnerLabel: UILabel!
@@ -15,29 +14,4 @@ class ScoreboardCell: UICollectionViewCell
     @IBOutlet weak var winnerScore: UILabel!
     @IBOutlet weak var loserScore: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    
-    
-    
-    //ifbhfjkghtghdg
-    
-//    var scoreboard: MatchBuilder? {
-//        didSet{
-//            if let scoreboard = scoreboard
-//            {
-//                //winnerLabel.text = scoreboard.winner
-//                //loserLabel.text = scoreboard.loser
-//                winnerScore.text = "\(scoreboard.winningScore)"
-//                winnerScore.text = "\(scoreboard.losingScore)"
-//                
-//            }
-//        }
-    
-    
-    
-    
-    
-    //fnsjkvsbvjkbvjkv
-    
-    
-    
 }

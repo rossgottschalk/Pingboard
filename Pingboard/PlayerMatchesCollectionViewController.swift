@@ -8,13 +8,7 @@
 
 import UIKit
 
-protocol APIControllerProtocolPlayerMatches
-{
-    func getPlayerMatches(playerMatchesDict: [String: AnyObject])
-}
-
-//private let reuseIdentifier = "Cell"
-class PlayerMatchesCollectionViewController: UICollectionViewController, APIControllerProtocolPlayerMatches {
+class PlayerMatchesCollectionViewController: UICollectionViewController {
     
     var player: Player?
     var matches: [Match] = []
@@ -24,10 +18,7 @@ class PlayerMatchesCollectionViewController: UICollectionViewController, APICont
     override func viewDidLoad(){
         self.title = "Player Bio"
         super.viewDidLoad()
-        self.navigationController?.navigationBar.isHidden = false
-        anAPIController = APIController(delegate: self as APIControllerProtocolPlayerMatches)
-        anAPIController.getPlayerMatchesAPI()
-
+        getPlayerMatches()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -70,22 +61,45 @@ class PlayerMatchesCollectionViewController: UICollectionViewController, APICont
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ScoreboardCell
-//        let match: MatchBuilder = (player?.arrayOfLosses)![indexPath.row]
-//        
+   
         let match = matches[indexPath.row]
-//            
-//        
+        
         cell.winnerLabel.text = "\(match.winnerName) ✓"
         cell.loserLabel.text = match.loserName
         cell.winnerScore.text = "\(match.winningScore)"
         cell.loserScore.text = "\(match.losingScore)"
-        cell.dateLabel.text = match.date
-        
+        //cell.dateLabel.text = match.date
     
         // Configure the cell
-    
         return cell
     }
+    
+    func getPlayerMatches()
+    {
+        var allMatches = [Match]()
+        var sortedMatches = [Match]()
+        let playerID = player?.playerID
+        
+        if let loadedData = UserDefaults.standard.data(forKey: "matchData")
+        {
+            let loadedMatch = NSKeyedUnarchiver.unarchiveObject(with: loadedData) as! [Match]
+            allMatches = loadedMatch
+        }
+        for aMatch in allMatches
+        {
+            if aMatch.winnerID == playerID!
+            {
+                sortedMatches.append(aMatch)
+            }
+            if aMatch.loserID == playerID!
+            {
+                sortedMatches.append(aMatch)
+            }
+        }
+        self.matches = sortedMatches
+        self.collectionView?.reloadData()
+    }
+
 
     // MARK: UICollectionViewDelegate
 
@@ -118,31 +132,4 @@ class PlayerMatchesCollectionViewController: UICollectionViewController, APICont
     }
     */
 
-    func getPlayerMatches(playerMatchesDict: [String : AnyObject])
-    {
-        let playerID = player?.playerID
-        var allMatches = [Match]()
-        var sortedMatches = [Match]()
-        let anAPIResult = APIResult(resultDict: playerMatchesDict)
-        
-        for aMatch in anAPIResult.resultArray
-        {
-            let newMatch = Match(matchBuilderDict: aMatch)
-            allMatches.append(newMatch)
-        }
-            for aMatch in allMatches
-            {
-                if aMatch.winnerID == playerID!
-                {
-                    sortedMatches.append(aMatch)
-                }
-                if aMatch.loserID == playerID!
-                {
-                    sortedMatches.append(aMatch)
-                }
-            }
-
-        self.matches = sortedMatches
-        self.collectionView?.reloadData()
-    }
 }

@@ -7,31 +7,16 @@
 //
 
 import UIKit
-
-protocol APIControllerProtocolMatches
-{
-    func getTheMatches(matchesDict: [String: AnyObject])
-}
-
-
-class MatchCenterCollectionViewController: UICollectionViewController, APIControllerProtocolMatches
+class MatchCenterCollectionViewController: UICollectionViewController//, APIControllerProtocolMatches
 {
     var anAPIController: APIController!
     var matches: [Match] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        anAPIController = APIController(delegate: self as APIControllerProtocolMatches)
-        anAPIController.getPingMatchesAPI()
-
-
+        getTheMatches()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-//        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,8 +54,8 @@ class MatchCenterCollectionViewController: UICollectionViewController, APIContro
         cell.loserLabel.text = match.loserName
         cell.winnerScore.text = "\(match.winningScore)"
         cell.loserScore.text = "\(match.losingScore)"
-        cell.dateLabel.text = match.date
-    
+        //cell.dateLabel.text = match.date
+
         return cell
     }
 
@@ -105,27 +90,12 @@ class MatchCenterCollectionViewController: UICollectionViewController, APIContro
     }
     */
     
-    func getTheMatches(matchesDict: [String: AnyObject])
+    func getTheMatches()
     {
-        var allMatches = [Match]()
-        let anAPIResult = APIResult(resultDict: matchesDict)
-        //let aWinsAndLossesResult = PlayerBuilder(playerBuilderDict: thePlayersArray)
-        
-        for aMatch in anAPIResult.resultArray
+        if let loadedData = UserDefaults.standard.data(forKey: "matchData")
         {
-            let newMatch = Match(matchBuilderDict: aMatch)
-            allMatches.append(newMatch)
+            let loadedMatch = NSKeyedUnarchiver.unarchiveObject(with: loadedData) as! [Match]
+            self.matches = loadedMatch
         }
-        //        for aPlayer in aWinsAndLossesResult.winningMatches
-        //        {
-        //            let newPlayer = PlayerBuilder
-        //        }
-        //print(thePlayersArray)
-        self.matches = allMatches
-        self.collectionView?.reloadData()
-
-        //print(theMatchesArray)
     }
-
-
 }

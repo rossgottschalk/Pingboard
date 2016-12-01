@@ -20,17 +20,6 @@ class Player: NSObject, NSCoding
     var totalMatches: Double
     var winningPercentage: Double
     
-    //var playerMatches: [[String: AnyObject]] = []
-    
-    //let date: String
-//    let id: Int
-//    var winnerDict: [String : AnyObject]
-//    let loserDict: [String : AnyObject]
-//    let winnerName: String
-//    let loserName: String
-//    let winningScore: Int
-//    let losingScore: Int
-    //var lossesDict
     init(playerBuilderDict: [String: AnyObject])
     {
         name = playerBuilderDict["name"] as! String
@@ -54,7 +43,6 @@ class Player: NSObject, NSCoding
         aCoder.encode(numberOfWins, forKey: "numberOfWins")
         aCoder.encode(totalMatches, forKey: "totalMatches")
         aCoder.encode(winningPercentage, forKey: "winPercent")
-        
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -67,40 +55,6 @@ class Player: NSObject, NSCoding
         self.numberOfLosses = aDecoder.decodeDouble(forKey: "numberOfLosses")
         self.totalMatches = aDecoder.decodeDouble(forKey: "totalMatches")
         self.winningPercentage = aDecoder.decodeDouble(forKey: "winPercent")
-        
     }
     
-//    convenience init(name: String, nickname: String, playerID: Int, arrayOfLosses: [[String : AnyObject]], arrayOfWins: [[String: AnyObject]], numberOfWins: Double, numberOfLosses: Double, totalMatches: Double, winningPercentage: Double) {
-//        self.name = name
-//        self.nickname = nickname
-//        self.playerID = playerID
-//        self.arrayOfLosses = arrayOfLosses
-//        self.arrayOfWins = arrayOfWins
-//        self.numberOfLosses = numberOfLosses
-//        self.numberOfWins = numberOfWins
-//        self.totalMatches = totalMatches
-//        self.winningPercentage = winningPercentage
-//    }
 }
-
-
-//struct winsAndLosses
-//{
-//    let date: String
-//    let id: Int
-//    let winner: [String : AnyObject]
-//    let loser: [String : AnyObject]
-//    let winningScore: Int
-//    let losingScore: Int
-//    
-//    init(matchBuilderDict: [String: AnyObject])
-//    {
-//        date = matchBuilderDict["dates"] as! String
-//        id = matchBuilderDict["id"] as! Int
-//        winner = matchBuilderDict["winner"] as! [String : AnyObject]
-//        loser = matchBuilderDict["loser"] as! [String : AnyObject]
-//        winningScore = matchBuilderDict["winningScore"] as! Int
-//        losingScore = matchBuilderDict["loosingScore"] as! Int
-//    }
-//}
-

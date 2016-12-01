@@ -9,7 +9,7 @@
         <!--Profile-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="Pingboard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="NewMatchViewController" customModule="Pingboard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -26,32 +26,42 @@
                                     <action selector="buttonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="vkc-fI-xfh"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oqz-Jf-8Or">
-                                <frame key="frameInset" minX="243" minY="277" width="63" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Score" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oqz-Jf-8Or">
+                                <frame key="frameInset" minX="255" minY="304" width="63" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Score" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kQw-u8-m79">
+                                <frame key="frameInset" minX="73" minY="304" width="63" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kQw-u8-m79">
-                                <frame key="frameInset" minX="243" minY="165" width="63" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Gw-Kf-ULA">
-                                <frame key="frameInset" minX="52" minY="129" height="102" maxX="197"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gyP-UT-Sru">
-                                <frame key="frameInset" minX="47" minY="239" height="107" maxX="192"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hoU-cL-CVt" customClass="DropMenuButton" customModule="Pingboard" customModuleProvider="target">
+                                <state key="normal" title="Add Player 2"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aUM-cz-ftE" customClass="DropMenuButton" customModule="Pingboard" customModuleProvider="target">
+                                <state key="normal" title="Add Player 1"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="hoU-cL-CVt" firstAttribute="leading" secondItem="aUM-cz-ftE" secondAttribute="trailing" constant="96" id="KUp-vh-fFL"/>
+                            <constraint firstItem="aUM-cz-ftE" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" constant="62" id="MCz-je-z3j"/>
+                            <constraint firstItem="aUM-cz-ftE" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="125" id="Q05-0U-Mea"/>
+                            <constraint firstItem="oqz-Jf-8Or" firstAttribute="top" secondItem="hoU-cL-CVt" secondAttribute="bottom" constant="129" id="U9n-ZJ-kFY"/>
+                            <constraint firstAttribute="trailing" secondItem="hoU-cL-CVt" secondAttribute="trailing" constant="45" id="ZHm-80-RYm"/>
+                            <constraint firstItem="hoU-cL-CVt" firstAttribute="leading" secondItem="aUM-cz-ftE" secondAttribute="trailing" constant="96" id="axH-y8-slP"/>
+                            <constraint firstItem="hoU-cL-CVt" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="125" id="dHi-qX-fpY"/>
+                            <constraint firstItem="kQw-u8-m79" firstAttribute="top" secondItem="aUM-cz-ftE" secondAttribute="bottom" constant="129" id="ius-vi-6o8"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="first" id="acW-dT-cKf"/>
+                    <connections>
+                        <outlet property="drop1" destination="aUM-cz-ftE" id="w0Q-RY-r0M"/>
+                        <outlet property="drop2" destination="hoU-cL-CVt" id="xLp-m5-1EN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -152,18 +162,18 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qId-6i-zxJ" id="xfr-XO-2ST">
-                                    <frame key="frameInset" width="342" height="43.5"/>
+                                    <frame key="frameInset" width="342" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pfk-nh-Pd5">
-                                            <frame key="frameInset" minX="15" minY="12" width="33.5" height="20.5"/>
+                                            <frame key="frameInset" minX="15" minY="11" width="34" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BOC-Kx-Gnn">
-                                            <frame key="frameInset" minX="296" minY="12" width="44" height="20.5"/>
+                                            <frame key="frameInset" minX="296" minY="11" width="44" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
