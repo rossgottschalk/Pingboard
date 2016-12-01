@@ -174,7 +174,7 @@ class DropMenuButton: UIButton, UITableViewDelegate, UITableViewDataSource
         
         let itemLabel = UILabel(frame: CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
         itemLabel.textAlignment = NSTextAlignment.center
-        itemLabel.text = items[(indexPath as NSIndexPath).row]
+        itemLabel.text = items[indexPath.row]
         itemLabel.font = self.titleLabel?.font
         itemLabel.textColor = self.backgroundColor
         

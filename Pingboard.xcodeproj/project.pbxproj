@@ -22,6 +22,8 @@
 		5BD3D94D1DDE29D4007322B1 /* PlayerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD3D94C1DDE29D4007322B1 /* PlayerDetailViewController.swift */; };
 		5BD3D94F1DDE39CD007322B1 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD3D94E1DDE39CD007322B1 /* Match.swift */; };
 		5BD3D9511DDE3A92007322B1 /* APIResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD3D9501DDE3A92007322B1 /* APIResult.swift */; };
+		5BD75C611DF08860004CCF3D /* DropdownTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD75C601DF08860004CCF3D /* DropdownTableViewController.swift */; };
+		5BD75C651DF0C82D004CCF3D /* Dropdown2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD75C641DF0C82D004CCF3D /* Dropdown2TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		5BD3D94C1DDE29D4007322B1 /* PlayerDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerDetailViewController.swift; sourceTree = "<group>"; };
 		5BD3D94E1DDE39CD007322B1 /* Match.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 		5BD3D9501DDE3A92007322B1 /* APIResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResult.swift; sourceTree = "<group>"; };
+		5BD75C601DF08860004CCF3D /* DropdownTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DropdownTableViewController.swift; sourceTree = "<group>"; };
+		5BD75C641DF0C82D004CCF3D /* Dropdown2TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dropdown2TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,8 @@
 				5BC38F7C1DD6261400FB93AF /* StandingsTableViewController.swift */,
 				5B872A031DECA20A001CF668 /* PlayerMatchesCollectionViewController.swift */,
 				5BC38F6A1DD6230000FB93AF /* NewMatchViewController.swift */,
+				5BD75C601DF08860004CCF3D /* DropdownTableViewController.swift */,
+				5BD75C641DF0C82D004CCF3D /* Dropdown2TableViewController.swift */,
 				5B34D2E91DE645B400268C2C /* MatchCenterCollectionViewController.swift */,
 				5B79ED3E1DD6288D000F0C26 /* APIController.swift */,
 				5BD3D94C1DDE29D4007322B1 /* PlayerDetailViewController.swift */,
@@ -179,10 +185,12 @@
 				5BC38F691DD6230000FB93AF /* AppDelegate.swift in Sources */,
 				5BD3D94F1DDE39CD007322B1 /* Match.swift in Sources */,
 				5BC38F6B1DD6230000FB93AF /* NewMatchViewController.swift in Sources */,
+				5BD75C611DF08860004CCF3D /* DropdownTableViewController.swift in Sources */,
 				5BC38F7D1DD6261400FB93AF /* StandingsTableViewController.swift in Sources */,
 				5BD3D94D1DDE29D4007322B1 /* PlayerDetailViewController.swift in Sources */,
 				5B34D2EC1DE6463500268C2C /* ScoreboardCell.swift in Sources */,
 				5B79ED411DD62B03000F0C26 /* Player.swift in Sources */,
+				5BD75C651DF0C82D004CCF3D /* Dropdown2TableViewController.swift in Sources */,
 				5B34D2EA1DE645B400268C2C /* MatchCenterCollectionViewController.swift in Sources */,
 				5B08C0751DEFB44100EE7EDC /* DropMenuButton.swift in Sources */,
 				5B872A041DECA20A001CF668 /* PlayerMatchesCollectionViewController.swift in Sources */,
