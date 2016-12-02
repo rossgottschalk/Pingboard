@@ -23,7 +23,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="ZVM-F0-Rb7"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Enter Match"/>
                                 <connections>
                                     <action selector="buttonPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="vkc-fI-xfh"/>
                                 </connections>
@@ -34,7 +34,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hoU-cL-CVt" customClass="DropMenuButton" customModule="Pingboard" customModuleProvider="target">
                                 <color key="backgroundColor" red="0.88114228839999997" green="0.88114228839999997" blue="0.88114228839999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -57,7 +57,7 @@
                                     </segue>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter score..." textAlignment="center" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="oqz-Jf-8Or">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter score..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oqz-Jf-8Or">
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -88,48 +88,13 @@
                     <connections>
                         <outlet property="drop1" destination="aUM-cz-ftE" id="eF5-nZ-wIB"/>
                         <outlet property="drop2" destination="hoU-cL-CVt" id="uX3-qj-HyX"/>
+                        <outlet property="player1ScoreText" destination="kQw-u8-m79" id="Z0x-9X-gK0"/>
+                        <outlet property="player2ScoreText" destination="oqz-Jf-8Or" id="8dk-wB-CCS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1928.8" y="-733.5832083958021"/>
-        </scene>
-        <!--Dropdown2 Table View Controller-->
-        <scene sceneID="VyH-MW-jK3">
-            <objects>
-                <tableViewController id="Sht-62-RD4" customClass="Dropdown2TableViewController" customModule="Pingboard" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="YAx-8B-SAJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="resueIdentifier" textLabel="p2Q-yS-Jv1" style="IBUITableViewCellStyleDefault" id="eAN-Jy-2Yl">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eAN-Jy-2Yl" id="NXa-ei-6V5">
-                                    <frame key="frameInset" width="375" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="p2Q-yS-Jv1">
-                                            <frame key="frameInset" minX="15" width="345" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Sht-62-RD4" id="j2l-5c-0Nf"/>
-                            <outlet property="delegate" destination="Sht-62-RD4" id="rEn-Po-FaZ"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="anv-BV-P1t" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2985" y="-1059"/>
         </scene>
         <!--Dropdown Table View Controller-->
         <scene sceneID="aRA-mI-LZu">
@@ -184,7 +149,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="c5R-rj-996" customClass="ScoreboardCell" customModule="Pingboard" customModuleProvider="target">
-                                <rect key="frame" x="61" y="0.0" width="254" height="140"/>
+                                <rect key="frame" x="60.5" y="0.0" width="254" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="254" height="140"/>
@@ -335,7 +300,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="aaC-qW-T1u" customClass="ScoreboardCell" customModule="Pingboard" customModuleProvider="target">
-                                <rect key="frame" x="61" y="0.0" width="254" height="140"/>
+                                <rect key="frame" x="60.5" y="0.0" width="254" height="140"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="254" height="140"/>
@@ -400,11 +365,11 @@
             </objects>
             <point key="canvasLocation" x="3575" y="736"/>
         </scene>
-        <!--ScoreBoard-->
+        <!--Scoreboard-->
         <scene sceneID="4OT-pO-1wW">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZXo-eH-Fdd" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="ScoreBoard" id="8oJ-KZ-qkF"/>
+                    <tabBarItem key="tabBarItem" title="Scoreboard" id="8oJ-KZ-qkF"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lHN-Xh-oop">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -438,11 +403,11 @@
             </objects>
             <point key="canvasLocation" x="1797.5999999999999" y="736.28185907046486"/>
         </scene>
-        <!--Profile-->
+        <!--Match-->
         <scene sceneID="TXD-oK-KfS">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qcr-i9-qj8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Match" image="first" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="y3X-ir-xgI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

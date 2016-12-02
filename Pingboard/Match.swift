@@ -9,7 +9,7 @@
 import Foundation
 class Match: NSObject, NSCoding
 {
-    //let date: String
+    let date: String
     let matchID: Int
     var winnerDict: [String : AnyObject]
     let loserDict: [String : AnyObject]
@@ -22,7 +22,7 @@ class Match: NSObject, NSCoding
     
     init(matchBuilderDict: [String: AnyObject])
     {
-        //date = matchBuilderDict["dates"] as! String
+        date = matchBuilderDict["dates"] as! String
         matchID = matchBuilderDict["id"] as! Int
         winnerDict = matchBuilderDict["winner"] as! [String : AnyObject]
         loserDict = matchBuilderDict["loser"] as! [String : AnyObject]
@@ -35,7 +35,7 @@ class Match: NSObject, NSCoding
     }
     
     func encode(with aCoder: NSCoder) {
-        //aCoder.encode(date, forKey: "date")
+        aCoder.encode(date, forKey: "date")
         aCoder.encode(matchID, forKey: "matchID")
         aCoder.encode(winnerDict, forKey: "winnerDict")
         aCoder.encode(loserDict, forKey: "loserDict")
@@ -48,7 +48,7 @@ class Match: NSObject, NSCoding
     }
     
     required init(coder aDecoder: NSCoder) {
-        //self.date = aDecoder.decodeObject(forKey: "name") as! String
+        self.date = aDecoder.decodeObject(forKey: "date") as! String
         self.matchID = aDecoder.decodeInteger(forKey: "matchID")
         self.winnerDict = aDecoder.decodeObject(forKey: "winnerDict") as! [String: AnyObject]
         self.loserDict = aDecoder.decodeObject(forKey: "loserDict") as! [String: AnyObject]

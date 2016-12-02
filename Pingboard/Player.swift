@@ -34,7 +34,8 @@ class Player: NSObject, NSCoding
         winningPercentage = numberOfWins/totalMatches
     }
 
-    func encode(with aCoder: NSCoder) {
+    func encode(with aCoder: NSCoder)
+    {
         aCoder.encode(name, forKey: "name")
         aCoder.encode(nickname, forKey: "nickname")
         aCoder.encode(playerID, forKey: "id")
@@ -45,7 +46,8 @@ class Player: NSObject, NSCoding
         aCoder.encode(winningPercentage, forKey: "winPercent")
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init(coder aDecoder: NSCoder)
+    {
         self.name = aDecoder.decodeObject(forKey: "name") as! String
         self.nickname = aDecoder.decodeObject(forKey: "nickname") as! String
         self.playerID = aDecoder.decodeInteger(forKey: "id") 

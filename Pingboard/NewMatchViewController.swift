@@ -12,24 +12,37 @@ protocol PlayerDelegate
     func playerWasSelected(player: Player)
 }
 
-
 class NewMatchViewController: UIViewController, UIPopoverPresentationControllerDelegate, PlayerDelegate
 {
-    var anAPIController: APIController!
-    var players: [Player] = []
     
     
     @IBOutlet var drop1: UIButton!
     @IBOutlet var drop2: UIButton!
+    @IBOutlet var player1ScoreText: UITextField!
+    @IBOutlet var player2ScoreText: UITextField!
     
+    let standingsVC = StandingsTableViewController()
+    var anAPIController = APIController()
+    var players: [Player] = []
     var player1: Player?
     var player2: Player?
+    var player1Score: Int = 0
+    var player2Score: Int = 0
+    var player1Name: String = ""
+    var player1ID: Int = 0
+    var player2Name: String = ""
+    var player2ID:Int = 0
+    let date = Date()
+    let formatter = DateFormatter()
+    
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         self.title = "Match"
         getThePlayers()
+        formatter.dateFormat = "MM/dd/yy"
+        
         
         //Drop Down Menus/////////////////////////////////////////////////////////////
 //        drop1.initMenu([players], actions: [({ () -> (Void) in
@@ -67,7 +80,7 @@ class NewMatchViewController: UIViewController, UIPopoverPresentationControllerD
                 popoverVC.popoverPresentationController?.delegate = self
                 popoverVC.popoverPresentationController?.permittedArrowDirections = .up
                 popoverVC.popoverPresentationController?.sourceView = self.drop1
-                popoverVC.popoverPresentationController?.sourceRect = CGRect(x:108.5, y: 100, width: 0, height: 0)
+                popoverVC.popoverPresentationController?.sourceRect = CGRect(x:93.5, y: 100, width: 0, height: 0)
                 popoverVC.delegate = self
             }
 //            popoverVC.modalPresentationStyle = UIModalPresentationStyle.popover
@@ -85,7 +98,7 @@ class NewMatchViewController: UIViewController, UIPopoverPresentationControllerD
                 popoverVC.popoverPresentationController?.delegate = self
                 popoverVC.popoverPresentationController?.permittedArrowDirections = .up
                 popoverVC.popoverPresentationController?.sourceView = self.drop2
-                popoverVC.popoverPresentationController?.sourceRect = CGRect(x:108.5, y: 100, width: 0, height: 0)
+                popoverVC.popoverPresentationController?.sourceRect = CGRect(x:93.5, y: 100, width: 0, height: 0)
                 popoverVC.delegate = self
             }
         }
@@ -96,16 +109,41 @@ class NewMatchViewController: UIViewController, UIPopoverPresentationControllerD
         return .none
     }
 
+    //MARK: - Action Handlers
 
     @IBAction func buttonPressed(_ sender: UIButton)
     {
-        anAPIController.postMatch()
+        let p1score = Int(player1ScoreText.text!)
+        let p2score = Int(player2ScoreText.text!)
+        let theDate = formatter.string(from: date)
+
+        player1Score = p1score!
+        player2Score = p2score!
+        
+        player1Name = (player1?.name)!
+        player2Name = (player2?.name)!
+        player1ID = (player1?.playerID)!
+        player2ID = (player2?.playerID)!
+        
+        if (player1Score > player2Score)
+        {
+            anAPIController.postMatch(loserName: player2Name, loserID: player2ID, losingScore: player2Score, winnerName: player1Name, winnerID: player1ID, winningScore: player1Score, date: theDate)
+        }
+        else
+        {
+            anAPIController.postMatch(loserName: player1Name, loserID: player1ID, losingScore: player1Score, winnerName: player2Name, winnerID: player2ID, winningScore: player2Score, date: theDate)
+        }
+        
+        drop1.setTitle("Add Player 1", for: .normal)
+        drop2.setTitle("Add Player2", for: .normal)
+        player1ScoreText.text = ""
+        player2ScoreText.text = ""
+        players.append(player1!)
+        players.append(player2!)
+        player1 = nil
+        
+        standingsVC.makeAPICalls()
     }
-    
-//    @IBAction func player1buttonPressed(_ sender: UIButton)
-//    {
-//        
-//    }
 
     func getThePlayers()
     {
@@ -124,12 +162,13 @@ class NewMatchViewController: UIViewController, UIPopoverPresentationControllerD
             drop1.setTitle(player1?.name, for: .normal)
             let index = players.index(of: player1!)
             players.remove(at: index!)
-            
         }
         else
         {
             player2 = player
             drop2.setTitle(player2?.name, for: .normal)
+            let index = players.index(of: player2!)
+            players.remove(at: index!)
         }
     }
 }

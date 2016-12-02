@@ -68,7 +68,7 @@ class PlayerMatchesCollectionViewController: UICollectionViewController {
         cell.loserLabel.text = match.loserName
         cell.winnerScore.text = "\(match.winningScore)"
         cell.loserScore.text = "\(match.losingScore)"
-        //cell.dateLabel.text = match.date
+        cell.dateLabel.text = match.date
     
         // Configure the cell
         return cell

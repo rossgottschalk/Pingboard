@@ -24,16 +24,18 @@ class StandingsTableViewController: UITableViewController, APIControllerProtocol
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Standings"
-        
         anAPIController = APIController(delegate: self as APIControllerProtocol)
-        anAPIController.getPingMatchesAPI()
-        anAPIController.getPingPlayersAPI()
-               
+        makeAPICalls()
+       
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,13 +80,15 @@ class StandingsTableViewController: UITableViewController, APIControllerProtocol
         var allPlayers = [Player]()
         let anAPIResult = APIResult(resultDict: playersDict)
         
-        
         for aPlayer in anAPIResult.resultArray
         {
             let newPlayer = Player(playerBuilderDict: aPlayer)
             allPlayers.append(newPlayer)
         }
         self.players = allPlayers
+        
+        
+        
         players.sort(by: {$0.winningPercentage > $1.winningPercentage})
         
         
@@ -108,6 +112,12 @@ class StandingsTableViewController: UITableViewController, APIControllerProtocol
         
         let matchData = NSKeyedArchiver.archivedData(withRootObject: self.matches)
         UserDefaults.standard.set(matchData, forKey: "matchData")
+    }
+    
+    func makeAPICalls()
+    {
+        anAPIController.getPingMatchesAPI()
+        anAPIController.getPingPlayersAPI()
     }
     
     /*
