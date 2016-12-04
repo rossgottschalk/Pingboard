@@ -24,7 +24,6 @@ class StandingsTableViewController: UITableViewController, APIControllerProtocol
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Standings"
-        anAPIController = APIController(delegate: self as APIControllerProtocol)
         makeAPICalls()
        
         // Uncomment the following line to preserve selection between presentations
@@ -116,8 +115,12 @@ class StandingsTableViewController: UITableViewController, APIControllerProtocol
     
     func makeAPICalls()
     {
+        anAPIController = APIController(delegate: self as APIControllerProtocol)
+
         anAPIController.getPingMatchesAPI()
         anAPIController.getPingPlayersAPI()
+
+        
     }
     
     /*

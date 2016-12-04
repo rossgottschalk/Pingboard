@@ -18,7 +18,7 @@ class MatchCenterCollectionViewController: UICollectionViewController//, APICont
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -92,10 +92,12 @@ class MatchCenterCollectionViewController: UICollectionViewController//, APICont
     
     func getTheMatches()
     {
+        var theMatches = [Match]()
         if let loadedData = UserDefaults.standard.data(forKey: "matchData")
         {
             let loadedMatch = NSKeyedUnarchiver.unarchiveObject(with: loadedData) as! [Match]
-            self.matches = loadedMatch
+            theMatches = loadedMatch
         }
+        matches = theMatches
     }
 }

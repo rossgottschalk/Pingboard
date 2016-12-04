@@ -13,6 +13,10 @@
 		5B79ED3F1DD6288D000F0C26 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B79ED3E1DD6288D000F0C26 /* APIController.swift */; };
 		5B79ED411DD62B03000F0C26 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B79ED401DD62B03000F0C26 /* Player.swift */; };
 		5B872A041DECA20A001CF668 /* PlayerMatchesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B872A031DECA20A001CF668 /* PlayerMatchesCollectionViewController.swift */; };
+		5BA953481DF3C43C00E2919D /* table-tennis-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BA953451DF3C43C00E2919D /* table-tennis-7.png */; };
+		5BA953491DF3C43C00E2919D /* layout-arrange-10-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BA953461DF3C43C00E2919D /* layout-arrange-10-7.png */; };
+		5BA9534A1DF3C43C00E2919D /* text-list-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BA953471DF3C43C00E2919D /* text-list-7.png */; };
+		5BA9534C1DF3C58800E2919D /* Ping Pong Filled-50.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BA9534B1DF3C58800E2919D /* Ping Pong Filled-50.png */; };
 		5BC38F691DD6230000FB93AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC38F681DD6230000FB93AF /* AppDelegate.swift */; };
 		5BC38F6B1DD6230000FB93AF /* NewMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC38F6A1DD6230000FB93AF /* NewMatchViewController.swift */; };
 		5BC38F701DD6230000FB93AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BC38F6E1DD6230000FB93AF /* Main.storyboard */; };
@@ -32,6 +36,10 @@
 		5B79ED3E1DD6288D000F0C26 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		5B79ED401DD62B03000F0C26 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		5B872A031DECA20A001CF668 /* PlayerMatchesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerMatchesCollectionViewController.swift; sourceTree = "<group>"; };
+		5BA953451DF3C43C00E2919D /* table-tennis-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "table-tennis-7.png"; sourceTree = "<group>"; };
+		5BA953461DF3C43C00E2919D /* layout-arrange-10-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "layout-arrange-10-7.png"; sourceTree = "<group>"; };
+		5BA953471DF3C43C00E2919D /* text-list-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text-list-7.png"; sourceTree = "<group>"; };
+		5BA9534B1DF3C58800E2919D /* Ping Pong Filled-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ping Pong Filled-50.png"; sourceTree = "<group>"; };
 		5BC38F651DD6230000FB93AF /* Pingboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pingboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BC38F681DD6230000FB93AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BC38F6A1DD6230000FB93AF /* NewMatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMatchViewController.swift; sourceTree = "<group>"; };
@@ -69,6 +77,17 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		5BA953441DF3C2AB00E2919D /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				5BA9534B1DF3C58800E2919D /* Ping Pong Filled-50.png */,
+				5BA953451DF3C43C00E2919D /* table-tennis-7.png */,
+				5BA953461DF3C43C00E2919D /* layout-arrange-10-7.png */,
+				5BA953471DF3C43C00E2919D /* text-list-7.png */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
 		5BC38F5C1DD622FF00FB93AF = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +115,7 @@
 				5B34D2E91DE645B400268C2C /* MatchCenterCollectionViewController.swift */,
 				5B79ED3E1DD6288D000F0C26 /* APIController.swift */,
 				5BD3D94C1DDE29D4007322B1 /* PlayerDetailViewController.swift */,
+				5BA953441DF3C2AB00E2919D /* Assets */,
 				5B34D2E81DE6234800268C2C /* Models */,
 				5BC38F6E1DD6230000FB93AF /* Main.storyboard */,
 				5BC38F711DD6230000FB93AF /* Assets.xcassets */,
@@ -165,9 +185,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5BA9534C1DF3C58800E2919D /* Ping Pong Filled-50.png in Resources */,
 				5BC38F751DD6230000FB93AF /* LaunchScreen.storyboard in Resources */,
 				5BC38F721DD6230000FB93AF /* Assets.xcassets in Resources */,
+				5BA953491DF3C43C00E2919D /* layout-arrange-10-7.png in Resources */,
 				5BC38F701DD6230000FB93AF /* Main.storyboard in Resources */,
+				5BA9534A1DF3C43C00E2919D /* text-list-7.png in Resources */,
+				5BA953481DF3C43C00E2919D /* table-tennis-7.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
