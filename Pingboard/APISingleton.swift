@@ -10,10 +10,6 @@ import Foundation
 
 class APISingleton
 {
-    
     var newMatchSent = true
-    
- 
     static let sharedInstance = APISingleton()
-    
 }

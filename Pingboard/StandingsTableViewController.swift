@@ -19,11 +19,7 @@ class StandingsTableViewController: UITableViewController, APIControllerProtocol
     var anAPIController: APIController!
     var players: [Player] = []
     var matches: [Match] = []
-    //var newMatchSent = true
-   
 
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Standings"
@@ -38,11 +34,11 @@ class StandingsTableViewController: UITableViewController, APIControllerProtocol
 
         if APISingleton.sharedInstance.newMatchSent == true
         {
-            print("\(APISingleton.sharedInstance.newMatchSent)***************************")
+            //print("\(APISingleton.sharedInstance.newMatchSent)***************************")
             makeAPICalls()
         }
         APISingleton.sharedInstance.newMatchSent = false
-        print("\(APISingleton.sharedInstance.newMatchSent)**********************")
+        //print("\(APISingleton.sharedInstance.newMatchSent)**********************")
 
     }
 

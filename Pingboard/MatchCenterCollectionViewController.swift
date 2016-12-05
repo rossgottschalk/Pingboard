@@ -104,6 +104,8 @@ class MatchCenterCollectionViewController: UICollectionViewController//, APICont
             theMatches = loadedMatch
         }
         matches = theMatches
+        matches.sort(by: {$0.date > $1.date})
+
         collectionView?.reloadData()
     }
 }

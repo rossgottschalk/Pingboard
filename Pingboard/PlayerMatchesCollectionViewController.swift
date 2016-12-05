@@ -18,7 +18,7 @@ class PlayerMatchesCollectionViewController: UICollectionViewController {
     override func viewDidLoad(){
         self.title = "\(player!.name)"
         super.viewDidLoad()
-        getPlayerMatches()
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -27,6 +27,10 @@ class PlayerMatchesCollectionViewController: UICollectionViewController {
         //self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        getPlayerMatches()
     }
 
     override func didReceiveMemoryWarning()
@@ -97,9 +101,9 @@ class PlayerMatchesCollectionViewController: UICollectionViewController {
             }
         }
         self.matches = sortedMatches
+        matches.sort(by: {$0.date > $1.date})
         self.collectionView?.reloadData()
     }
-
 
     // MARK: UICollectionViewDelegate
 
