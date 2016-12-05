@@ -16,7 +16,7 @@ class PlayerMatchesCollectionViewController: UICollectionViewController {
 
     
     override func viewDidLoad(){
-        self.title = "Player Bio"
+        self.title = "\(player!.name)"
         super.viewDidLoad()
         getPlayerMatches()
         

@@ -13,18 +13,20 @@ protocol APIControllerProtocol
     func getThePlayers(playersDict: [String: AnyObject])
     func getTheMatches(matchesDict: [String: AnyObject])
 }
-
 class StandingsTableViewController: UITableViewController, APIControllerProtocol
 {
     
     var anAPIController: APIController!
     var players: [Player] = []
     var matches: [Match] = []
+    //var newMatchSent = true
+   
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Standings"
-        makeAPICalls()
        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -32,10 +34,18 @@ class StandingsTableViewController: UITableViewController, APIControllerProtocol
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
-    
     override func viewDidAppear(_ animated: Bool) {
-        
+
+        if APISingleton.sharedInstance.newMatchSent == true
+        {
+            print("\(APISingleton.sharedInstance.newMatchSent)***************************")
+            makeAPICalls()
+        }
+        APISingleton.sharedInstance.newMatchSent = false
+        print("\(APISingleton.sharedInstance.newMatchSent)**********************")
+
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -84,10 +94,11 @@ class StandingsTableViewController: UITableViewController, APIControllerProtocol
             let newPlayer = Player(playerBuilderDict: aPlayer)
             allPlayers.append(newPlayer)
         }
+        
         self.players = allPlayers
         
         
-        
+    
         players.sort(by: {$0.winningPercentage > $1.winningPercentage})
         
         
@@ -119,9 +130,8 @@ class StandingsTableViewController: UITableViewController, APIControllerProtocol
 
         anAPIController.getPingMatchesAPI()
         anAPIController.getPingPlayersAPI()
-
-        
     }
+    
     
     /*
     // Override to support conditional editing of the table view.

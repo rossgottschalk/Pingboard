@@ -15,7 +15,7 @@ class DropdownTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //getThePlayers()
+        getThePlayers()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -92,7 +92,6 @@ class DropdownTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         let player = players[indexPath.row]
-        
         delegate?.playerWasSelected(player: player)
         self.dismiss(animated: true, completion: nil)
     }
@@ -111,6 +110,7 @@ class DropdownTableViewController: UITableViewController {
             let loadedPlayer = NSKeyedUnarchiver.unarchiveObject(with: loadedData) as! [Player]
             self.players = loadedPlayer
         }
+        
     }
     
 }

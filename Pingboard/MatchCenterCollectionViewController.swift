@@ -11,12 +11,17 @@ class MatchCenterCollectionViewController: UICollectionViewController//, APICont
 {
     var anAPIController: APIController!
     var matches: [Match] = []
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        getTheMatches()
+        self.title = "Match History"
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        getTheMatches()
     }
     
     override func didReceiveMemoryWarning() {
@@ -99,5 +104,6 @@ class MatchCenterCollectionViewController: UICollectionViewController//, APICont
             theMatches = loadedMatch
         }
         matches = theMatches
+        collectionView?.reloadData()
     }
 }

@@ -40,8 +40,8 @@ class NewMatchViewController: UIViewController, UIPopoverPresentationControllerD
     {
         super.viewDidLoad()
         self.title = "Match"
-        getThePlayers()
         formatter.dateFormat = "MM/dd/yy"
+        getThePlayers()
         
         
         //Drop Down Menus/////////////////////////////////////////////////////////////
@@ -125,6 +125,8 @@ class NewMatchViewController: UIViewController, UIPopoverPresentationControllerD
         player1ID = (player1?.playerID)!
         player2ID = (player2?.playerID)!
         
+        
+        
         if (player1Score > player2Score)
         {
             anAPIController.postMatch(loserName: player2Name, loserID: player2ID, losingScore: player2Score, winnerName: player1Name, winnerID: player1ID, winningScore: player1Score, date: theDate)
@@ -142,7 +144,10 @@ class NewMatchViewController: UIViewController, UIPopoverPresentationControllerD
         players.append(player2!)
         player1 = nil
         
-        standingsVC.makeAPICalls()
+        APISingleton.sharedInstance.newMatchSent = true
+        //standingsVC.newMatchSent = true
+        //print("\(standingsVC.newMatchSent)*******************************************************")
+        //standingsVC.newMatchSent = true
     }
 
     func getThePlayers()
@@ -161,14 +166,15 @@ class NewMatchViewController: UIViewController, UIPopoverPresentationControllerD
             player1 = player
             drop1.setTitle(player1?.name, for: .normal)
             let index = players.index(of: player1!)
-            players.remove(at: index!)
+            print(index)
+            //players.remove(at: index!)
         }
         else
         {
             player2 = player
             drop2.setTitle(player2?.name, for: .normal)
             let index = players.index(of: player2!)
-            players.remove(at: index!)
+            //players.remove(at: index!)
         }
     }
 }

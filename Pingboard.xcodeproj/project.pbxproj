@@ -13,6 +13,7 @@
 		5B79ED3F1DD6288D000F0C26 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B79ED3E1DD6288D000F0C26 /* APIController.swift */; };
 		5B79ED411DD62B03000F0C26 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B79ED401DD62B03000F0C26 /* Player.swift */; };
 		5B872A041DECA20A001CF668 /* PlayerMatchesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B872A031DECA20A001CF668 /* PlayerMatchesCollectionViewController.swift */; };
+		5B9BF5561DF5E28900494814 /* APISingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9BF5551DF5E28900494814 /* APISingleton.swift */; };
 		5BA953481DF3C43C00E2919D /* table-tennis-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BA953451DF3C43C00E2919D /* table-tennis-7.png */; };
 		5BA953491DF3C43C00E2919D /* layout-arrange-10-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BA953461DF3C43C00E2919D /* layout-arrange-10-7.png */; };
 		5BA9534A1DF3C43C00E2919D /* text-list-7.png in Resources */ = {isa = PBXBuildFile; fileRef = 5BA953471DF3C43C00E2919D /* text-list-7.png */; };
@@ -36,6 +37,7 @@
 		5B79ED3E1DD6288D000F0C26 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		5B79ED401DD62B03000F0C26 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		5B872A031DECA20A001CF668 /* PlayerMatchesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerMatchesCollectionViewController.swift; sourceTree = "<group>"; };
+		5B9BF5551DF5E28900494814 /* APISingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APISingleton.swift; sourceTree = "<group>"; };
 		5BA953451DF3C43C00E2919D /* table-tennis-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "table-tennis-7.png"; sourceTree = "<group>"; };
 		5BA953461DF3C43C00E2919D /* layout-arrange-10-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "layout-arrange-10-7.png"; sourceTree = "<group>"; };
 		5BA953471DF3C43C00E2919D /* text-list-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text-list-7.png"; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 		5B34D2E81DE6234800268C2C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				5B9BF5551DF5E28900494814 /* APISingleton.swift */,
 				5B79ED401DD62B03000F0C26 /* Player.swift */,
 				5BD3D94E1DDE39CD007322B1 /* Match.swift */,
 				5BD3D9501DDE3A92007322B1 /* APIResult.swift */,
@@ -212,6 +215,7 @@
 				5B34D2EC1DE6463500268C2C /* ScoreboardCell.swift in Sources */,
 				5B79ED411DD62B03000F0C26 /* Player.swift in Sources */,
 				5B34D2EA1DE645B400268C2C /* MatchCenterCollectionViewController.swift in Sources */,
+				5B9BF5561DF5E28900494814 /* APISingleton.swift in Sources */,
 				5B08C0751DEFB44100EE7EDC /* DropMenuButton.swift in Sources */,
 				5B872A041DECA20A001CF668 /* PlayerMatchesCollectionViewController.swift in Sources */,
 				5B79ED3F1DD6288D000F0C26 /* APIController.swift in Sources */,
