@@ -43,6 +43,9 @@ class NewMatchViewController: UIViewController, UIPopoverPresentationControllerD
         formatter.dateFormat = "MM/dd/yy"
         getThePlayers()
         
+        let tapRecognizer = UITapGestureRecognizer()
+        tapRecognizer.addTarget(self, action: #selector(NewMatchViewController.didTapView))
+        self.view.addGestureRecognizer(tapRecognizer)
         
         //Drop Down Menus/////////////////////////////////////////////////////////////
 //        drop1.initMenu([players], actions: [({ () -> (Void) in
@@ -110,6 +113,9 @@ class NewMatchViewController: UIViewController, UIPopoverPresentationControllerD
     }
 
     //MARK: - Action Handlers
+    func didTapView(){
+        self.view.endEditing(true)
+    }
 
     @IBAction func buttonPressed(_ sender: UIButton)
     {
@@ -165,15 +171,14 @@ class NewMatchViewController: UIViewController, UIPopoverPresentationControllerD
         {
             player1 = player
             drop1.setTitle(player1?.name, for: .normal)
-            let index = players.index(of: player1!)
-            print(index)
+            //let index = players.index(of: player1!)
             //players.remove(at: index!)
         }
         else
         {
             player2 = player
             drop2.setTitle(player2?.name, for: .normal)
-            let index = players.index(of: player2!)
+            //let index = players.index(of: player2!)
             //players.remove(at: index!)
         }
     }
